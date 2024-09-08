@@ -15,6 +15,7 @@ connectDB();
 
 const app = express();
 const contactRoutes = require('./routes/contactRoutes'); // Import the contact routes
+const menuItemRoutes = require('./routes/menuItemRoutes');
 
 // Middleware
 // app.use(cors());
@@ -30,6 +31,7 @@ app.use(passport.initialize());
 // Routes
 app.use('/api/users', require('./routes/userRoutes')); // User routes
 app.use('/api', contactRoutes); // Add a base path if needed
+app.use('/api', menuItemRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
