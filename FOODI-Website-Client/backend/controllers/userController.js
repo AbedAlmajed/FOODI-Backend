@@ -124,3 +124,47 @@ exports.googleAuth = (req, res) => {
 
 };
 
+
+
+exports.addFavoriteFood = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const { itemId } = req.body;
+
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: 'المستخدم غير موجود' });
+    }
+
+    if (!user.favorites) {
+      user.favorites = [];
+    }
+
+    if (!user.favorites.includes(itemId)) {
+      user.favorites.push(itemId);
+      await user.save();
+      res.status(200).json({ message: 'تمت إضافة الطعام إلى المفضلة' });
+    } else {
+      user.favorites = user.favorites.filter(id => id.toString() !== itemId);
+      await user.save();
+      res.status(200).json({ message: 'تمت إزالة الطعام من المفضلة' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: 'حدث خطأ أثناء تحديث الأطعمة المفضلة' });
+  }
+};
+
+exports.getFavoriteFoods = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const user = await User.findById(userId).populate('favorites');
+    
+    if (!user) {
+      return res.status(404).json({ message: 'المستخدم غير موجود' });
+    }
+
+    res.status(200).json(user.favorites);
+  } catch (error) {
+    res.status(500).json({ error: 'حدث خطأ أثناء جلب الأطعمة المفضلة' });
+  }
+};
