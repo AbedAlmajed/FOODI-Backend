@@ -26,7 +26,7 @@ function App() {
         <Route path="/custom" element={<CustomFood />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/Menu/Cart" element={<Cart />} />
+        <Route path="/Cart" element={<Cart />} />
         <Route path="/Menu/Cart/payment" element={<Payment />} />
 
       </Routes>

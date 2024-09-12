@@ -11,6 +11,8 @@ function authenticateJWT(req, res, next) {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    console.log('Decoded token:', JSON.stringify(decoded)); // Improved logging
+
     req.user = decoded;
     next();
   } catch (ex) {
@@ -18,4 +20,6 @@ function authenticateJWT(req, res, next) {
   }
 }
 
-module.exports = authenticateJWT;
+module.exports = {authenticateJWT};
+
+

@@ -14,7 +14,7 @@ const {
   addFavoriteFood,
   getFavoriteFoods
 } = require('../controllers/userController');
-const authenticateJWT = require('../middleware/authenticateJWT');
+const {authenticateJWT} = require('../middleware/authenticateJWT');
 
 const router = express.Router();
 
