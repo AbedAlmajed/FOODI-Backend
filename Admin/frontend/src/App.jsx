@@ -13,6 +13,7 @@ import CustomerSupport from './Admin/HomePage/CustomerSupport';
 import Booking from './Admin/HomePage/Booking';
 import AdminLogin from './Admin/Login/Login';
 import UpdateMenuItem from './Admin/HomePage/UpdateMenuItem'; // New import
+import CustomFood from './Admin/HomePage/Custom-Food';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/manage-items" element={<ManageMenu />} />
         <Route path='/home' element={<Dashboard />} />
         <Route path="/support" element={<CustomerSupport />} />
+        <Route path="/custom-food" element={<CustomFood/>} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/update-menu-item/:id" element={<UpdateMenuItem />} /> {/* New route */}
 

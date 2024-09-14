@@ -68,6 +68,11 @@ const Sidebar = () => {
               </Link>
             </li>
             <li>
+              <Link to="/custom-food" className="block py-2 px-4 text-gray-700 hover:bg-gray-200 rounded transition duration-200">
+                Custom Food
+              </Link>
+            </li>
+            <li>
               <button onClick={handleLogout} className="w-full text-left block py-2 px-4 text-gray-700 hover:bg-gray-200 rounded transition duration-200">
                 Logout
               </button>

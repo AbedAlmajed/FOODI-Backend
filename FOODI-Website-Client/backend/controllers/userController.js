@@ -4,6 +4,7 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const CustomFood = require('../models/CustomFood');
 
 exports.registerUser = async (req, res) => {
   const { name, email, password } = req.body;
@@ -65,6 +66,22 @@ exports.loginUser = async (req, res) => {
   }
 };
 
+// exports.getUserProfile = async (req, res) => {
+//   try {
+//     const userId = req.params.userId;
+//     const user = await User.findById(userId).select('-password');
+
+//     if (!user) {
+//       return res.status(404).json({ message: 'المستخدم غير موجود' });
+//     }
+
+//     res.status(200).json(user);
+//   } catch (error) {
+//     res.status(500).json({ error: 'حدث خطأ أثناء جلب ملف المستخدم الشخصي' });
+//   }
+// };
+
+
 exports.getUserProfile = async (req, res) => {
   try {
     const userId = req.params.userId;
@@ -74,11 +91,15 @@ exports.getUserProfile = async (req, res) => {
       return res.status(404).json({ message: 'المستخدم غير موجود' });
     }
 
-    res.status(200).json(user);
+    // Fetch custom foods created by the user
+    const customFoods = await CustomFood.find({ user: userId, isApproved: true });
+
+    res.status(200).json({ user, customFoods });
   } catch (error) {
     res.status(500).json({ error: 'حدث خطأ أثناء جلب ملف المستخدم الشخصي' });
   }
 };
+
 
 exports.updateUserProfile = async (req, res) => {
   const { name, email, password, profilePhotoLink } = req.body;
