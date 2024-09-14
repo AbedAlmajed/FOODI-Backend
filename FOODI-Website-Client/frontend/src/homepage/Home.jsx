@@ -13,7 +13,7 @@ import FavoriteFoods from './FavoriteFoods';
 export default function Home() {
   return (
     <div>
- <Navbar /> 
+ <Navbar  /> 
 <Banner />
 <OurStore />
 <Cards />
