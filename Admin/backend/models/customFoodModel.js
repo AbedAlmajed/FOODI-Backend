@@ -1,3 +1,8 @@
+
+
+
+
+
 const mongoose = require('mongoose');
 
 const customFoodSchema = mongoose.Schema(
@@ -15,6 +20,10 @@ const customFoodSchema = mongoose.Schema(
     isApproved: {
       type: Boolean,
       default: false,
+    },
+    price: {
+      type: Number,
+      default: 0,
     },
     user: {
       type: mongoose.Schema.Types.ObjectId,

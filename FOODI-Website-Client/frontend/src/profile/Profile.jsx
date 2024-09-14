@@ -1294,7 +1294,7 @@ export default function Profile() {
         {/* Favorite Food Section */}
         {favoriteItems.length > 0 && (
           <div className="w-full max-w-6xl bg-white shadow-md rounded-md p-6">
-            <h2 className="text-center text-2xl font-bold mb-6">الطعام المفضل</h2>
+            <h2 className="text-center text-2xl font-bold mb-6"> Favorite Food</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {favoriteItems.map((item) => (
                 <div
@@ -1315,7 +1315,7 @@ export default function Profile() {
                       ${item.price.toFixed(2)}
                     </p>
                     <button className="bg-green text-white px-4 py-2 rounded-lg hover:bg-black transition-colors duration-300">
-                      إضافة إلى السلة
+                    Add to cart
                     </button>
                   </div>
                 </div>
@@ -1327,7 +1327,7 @@ export default function Profile() {
         {/* Custom Food Section */}
         {customFoods.length > 0 && (
           <div className="w-full max-w-6xl bg-white shadow-md rounded-md p-6">
-            <h2 className="text-center text-2xl font-bold mb-6">الطعام المخصص</h2>
+            <h2 className="text-center text-2xl font-bold mb-6">Custom Food</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {customFoods.map((item) => (
                 <div
@@ -1344,7 +1344,12 @@ export default function Profile() {
                   <div className="p-4">
                     <h3 className="text-lg font-semibold mb-2 text-gray-900">{item.name}</h3>
                     <p className="text-gray-700 mb-2">{item.notes}</p>
-                    <p className="text-green-600 font-bold mb-4">Approved</p>
+                    <p className="text-green-600 font-bold mb-4">
+                      ${item.price}
+                    </p>
+                    <button className="bg-green text-white px-4 py-2 rounded-lg hover:bg-black transition-colors duration-300">
+                      Add to cart
+                    </button>
                   </div>
                 </div>
               ))}
