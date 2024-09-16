@@ -15,5 +15,6 @@ const customFoodController = require('../controllers/customFoodController');
 const { authenticateJWT } = require('../middleware/authenticateJWT');
 
 router.post('/custom-food', authenticateJWT, customFoodController.createCustomFood);
+router.get('/custom-food/:userId', authenticateJWT, customFoodController.getCustomFoodByUser);
 
 module.exports = router;
