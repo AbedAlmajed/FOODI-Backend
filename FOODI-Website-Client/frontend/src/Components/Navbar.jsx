@@ -788,6 +788,11 @@ const Navbar = () => {
       <li><Link to="/contact">Contact us</Link></li>
       <li><Link to="/custom">Custom Your Food</Link></li>
       <li><Link to="/order">My Orders</Link></li>
+      {isLoggedIn && (
+  <li><Link to="/feedback">Feedback</Link></li>
+)}
+
+
     </>
   );
 

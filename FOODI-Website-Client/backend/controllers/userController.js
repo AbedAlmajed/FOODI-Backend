@@ -66,20 +66,7 @@ exports.loginUser = async (req, res) => {
   }
 };
 
-// exports.getUserProfile = async (req, res) => {
-//   try {
-//     const userId = req.params.userId;
-//     const user = await User.findById(userId).select('-password');
 
-//     if (!user) {
-//       return res.status(404).json({ message: 'المستخدم غير موجود' });
-//     }
-
-//     res.status(200).json(user);
-//   } catch (error) {
-//     res.status(500).json({ error: 'حدث خطأ أثناء جلب ملف المستخدم الشخصي' });
-//   }
-// };
 
 
 exports.getUserProfile = async (req, res) => {

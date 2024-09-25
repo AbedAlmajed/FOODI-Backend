@@ -16,6 +16,7 @@ const contactRoutes = require('./routes/contactRoutes');
 const menuItemRoutes = require('./routes/menuItemRoutes');
 const cartRoutes = require('./routes/cartRoutes');
 const customFoodRoutes = require('./routes/customFood');
+const feedbackRoutes = require('./routes/feedbackRoutes');
 
 app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
 app.use(express.json());
@@ -27,6 +28,7 @@ app.use('/api', contactRoutes);
 app.use('/api', menuItemRoutes);
 app.use('/api/cart', cartRoutes);
 app.use('/api', customFoodRoutes);
+app.use('/api/feedback', feedbackRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
