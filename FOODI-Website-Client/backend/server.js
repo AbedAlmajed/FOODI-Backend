@@ -29,6 +29,8 @@ app.use('/api', menuItemRoutes);
 app.use('/api/cart', cartRoutes);
 app.use('/api', customFoodRoutes);
 app.use('/api/feedback', feedbackRoutes);
+const commentRoutes = require('./routes/commentRoutes');
+app.use('/api', commentRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

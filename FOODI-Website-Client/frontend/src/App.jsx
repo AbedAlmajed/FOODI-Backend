@@ -14,6 +14,7 @@ import Contact from './contact/Contact';
 import CustomFood from './Custom Food/CustomFood';
 import Order from './Orders/Order';
 import FeedbackForm from './Feedback/Feedback';
+import MenuItemDetails from './MenuItemDetails/MenuItemDetails';
 function App() {
   return (
     <BrowserRouter>
@@ -30,7 +31,7 @@ function App() {
         <Route path="/Cart" element={<Cart />} />
         <Route path="/Menu/Cart/payment" element={<Payment />} />
         <Route path="/feedback" element={<FeedbackForm />} />
-
+        <Route path="/menu-item/:id" element={<MenuItemDetails />} />
       </Routes>
 
     </BrowserRouter>
