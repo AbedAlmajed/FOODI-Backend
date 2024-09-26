@@ -31,6 +31,9 @@ app.use('/api', customFoodRoutes);
 app.use('/api/feedback', feedbackRoutes);
 const commentRoutes = require('./routes/commentRoutes');
 app.use('/api', commentRoutes);
-
+const driverRequestRoutes = require('./routes/driverRequestRoutes');
+app.use('/api', driverRequestRoutes);
+const driverRoutes = require('./routes/driverRoutes');
+app.use('/api/drivers', driverRoutes);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

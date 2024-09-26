@@ -15,6 +15,11 @@ import CustomFood from './Custom Food/CustomFood';
 import Order from './Orders/Order';
 import FeedbackForm from './Feedback/Feedback';
 import MenuItemDetails from './MenuItemDetails/MenuItemDetails';
+import DriverDashboard from './DriverDashboard/DriverDashboard';
+import Orders from './DriverDashboard/Orders';
+import Customers from './DriverDashboard/Customers';
+import DriverMenu from './DriverDashboard/Menu';
+
 function App() {
   return (
     <BrowserRouter>
@@ -32,6 +37,14 @@ function App() {
         <Route path="/Menu/Cart/payment" element={<Payment />} />
         <Route path="/feedback" element={<FeedbackForm />} />
         <Route path="/menu-item/:id" element={<MenuItemDetails />} />
+
+
+        {/* Driver Dashboard */}
+        <Route path="/driver-dashboard" element={<DriverDashboard />} />
+        <Route path="/driver-orders" element={<Orders />} />
+        <Route path="/driver-customers" element={<Customers />} />
+        <Route path="/driver-menu" element={<DriverMenu />} />
+
       </Routes>
 
     </BrowserRouter>

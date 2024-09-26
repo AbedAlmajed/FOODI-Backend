@@ -15,6 +15,7 @@ import AdminLogin from './Admin/Login/Login';
 import UpdateMenuItem from './Admin/HomePage/UpdateMenuItem'; // New import
 import CustomFood from './Admin/HomePage/Custom-Food';
 import Feedback from './Admin/HomePage/Feedback';
+import Driver from './Admin/HomePage/Driver';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/booking" element={<Booking />} />
         <Route path="/update-menu-item/:id" element={<UpdateMenuItem />} /> {/* New route */}
         <Route path="/Feedback" element={<Feedback />} /> {/* New route */}
+        <Route path="/Driver" element={<Driver />} /> {/* New route */}
 
       </Routes>
 
