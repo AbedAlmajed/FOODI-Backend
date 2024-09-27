@@ -33,6 +33,7 @@ const feedbackRoutes = require('./routes/feedbackRoutes');
 app.use('/api/feedback', feedbackRoutes);
 const driverRoutes = require('./routes/driverRoutes');
 app.use('/api/drivers', driverRoutes);
-
+const foodSoonRoutes = require('./routes/foodSoonRoutes');
+app.use('/api/food-soon', foodSoonRoutes);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

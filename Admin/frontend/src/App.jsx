@@ -16,6 +16,8 @@ import UpdateMenuItem from './Admin/HomePage/UpdateMenuItem'; // New import
 import CustomFood from './Admin/HomePage/Custom-Food';
 import Feedback from './Admin/HomePage/Feedback';
 import Driver from './Admin/HomePage/Driver';
+import FoodSoon from './Admin/HomePage/Food-Soon';
+import ManageFoodSoon from './Admin/HomePage/ManageFoodSoon';
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
         <Route path="/update-menu-item/:id" element={<UpdateMenuItem />} /> {/* New route */}
         <Route path="/Feedback" element={<Feedback />} /> {/* New route */}
         <Route path="/Driver" element={<Driver />} /> {/* New route */}
+        <Route path="/Food-soon" element={<FoodSoon />} /> {/* New route */}
+        <Route path="/Manage-Food-soon" element={<ManageFoodSoon />} /> {/* New route */}
 
       </Routes>
 

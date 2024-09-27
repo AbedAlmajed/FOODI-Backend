@@ -83,6 +83,16 @@ const Sidebar = () => {
               </Link>
             </li>
             <li>
+              <Link to="/Food-soon" className="block py-2 px-4 text-gray-700 hover:bg-gray-200 rounded transition duration-200">
+                Add Food Soon
+              </Link>
+            </li>
+            <li>
+              <Link to="/Manage-Food-soon" className="block py-2 px-4 text-gray-700 hover:bg-gray-200 rounded transition duration-200">
+                Manage Food Soon
+              </Link>
+            </li>
+            <li>
               <button onClick={handleLogout} className="w-full text-left block py-2 px-4 text-gray-700 hover:bg-gray-200 rounded transition duration-200">
                 Logout
               </button>
