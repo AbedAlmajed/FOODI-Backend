@@ -615,7 +615,7 @@ const Booking = () => {
     <div className="flex flex-col md:flex-row min-h-screen">
       <Sidebar />
       <div className="flex-grow p-6">
-        <h1 className="text-3xl font-bold mb-6">Manage All <span className='text-green-600'>Payments!</span></h1>
+        <h1 className="text-3xl font-bold mb-6">Manage All <span className='text-green'>Payments!</span></h1>
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white">
             <thead className="bg-gray-100">
@@ -658,7 +658,7 @@ const Booking = () => {
                         <span>{payment.assignedDriver.name}</span>
                       ) : (
                         <select
-                          className="border rounded p-1"
+                          className="border rounded p-1 bg-slate-100"
                           onChange={(e) => handleAssignDriver(payment._id, e.target.value)}
                         >
                           <option value="">Select Driver</option>
