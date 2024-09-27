@@ -80,6 +80,8 @@ const driverSchema = new mongoose.Schema({
   licenseNumber: { type: String, required: true },
   password: { type: String, required: true },
   isApproved: { type: Boolean, default: false },
+  status: { type: String, enum: ['available', 'busy'], default: 'available' },/////new addded
+
   createdAt: { type: Date, default: Date.now }
 });
 
