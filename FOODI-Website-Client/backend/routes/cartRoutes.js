@@ -9,7 +9,7 @@ const {
   getCartItems,
   updateCartItem,
   removeCartItem,
-  getCartCount,
+  getCartCount,clearCart
 } = require('../controllers/cartController');
 
 router.post('/add', authenticateJWT, addToCart);
@@ -17,5 +17,5 @@ router.get('/', authenticateJWT, getCartItems);
 router.post('/update', authenticateJWT, updateCartItem);
 router.delete('/remove/:itemId', authenticateJWT, removeCartItem);
 router.get('/count', authenticateJWT, getCartCount);
-
+router.post('/clear', authenticateJWT, clearCart);
 module.exports = router;
