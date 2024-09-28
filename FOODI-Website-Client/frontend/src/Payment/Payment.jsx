@@ -783,62 +783,6 @@ const CheckoutForm = ({ orderSummary, onSuccess }) => {
     setDeliveryInfo({ ...deliveryInfo, [e.target.name]: e.target.value });
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setProcessing(true);
-  //   setError(null);
-
-  //   if (!stripe || !elements) {
-  //     setError('Stripe has not loaded. Please try again.');
-  //     setProcessing(false);
-  //     return;
-  //   }
-
-  //   const cardElement = elements.getElement(CardElement);
-
-  //   try {
-  //     const { error, paymentMethod } = await stripe.createPaymentMethod({
-  //       type: 'card',
-  //       card: cardElement,
-  //     });
-
-  //     if (error) {
-  //       throw new Error(error.message);
-  //     }
-
-  //     // Send payment and delivery info to your server
-  //     const response = await axios.post('http://localhost:5000/api/payment', {
-  //       paymentMethodId: paymentMethod.id,
-  //       amount: Math.round(orderSummary.totalPrice * 100), // Convert to cents
-  //       deliveryInfo,
-  //       orderSummary,
-  //     }, {
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //     });
-
-  //     console.log('Server response:', response.data);
-
-  //     if (response.data.success) {
-  //       // Clear the cart after successful payment
-  //       const token = localStorage.getItem('token');
-  //       await axios.post('http://localhost:5000/api/cart/clear', {}, {
-  //         headers: { Authorization: `Bearer ${token}` },
-  //         withCredentials: true
-  //       });
-
-  //       onSuccess();
-  //     } else {
-  //       throw new Error('Payment failed. Please try again.');
-  //     }
-  //   } catch (err) {
-  //     console.error('Payment error:', err);
-  //     setError(err.message || 'An error occurred. Please try again.');
-  //   } finally {
-  //     setProcessing(false);
-  //   }
-  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
     setProcessing(true);
@@ -984,7 +928,7 @@ const CheckoutForm = ({ orderSummary, onSuccess }) => {
       <button
         type="submit"
         disabled={!stripe || processing}
-        className="w-full bg-green-500 text-white py-2 rounded-md hover:bg-black disabled:bg-gray-400"
+        className="w-full bg-green text-white py-2 rounded-md hover:bg-black disabled:bg-gray-400"
       >
         {processing ? 'Processing...' : 'Pay Now'}
       </button>
