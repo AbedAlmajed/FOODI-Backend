@@ -193,16 +193,16 @@ function Sidebar() {
               Orders
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/driver-customers" className="hover:text-gray-300 block">
               Customers
             </Link>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <Link to="/driver-menu" className="hover:text-gray-300 block">
               Menu
             </Link>
-          </li>
+          </li> */}
         </ul>
       </nav>
       <button 

@@ -510,8 +510,500 @@
 
 
 
+// import React, { useState, useEffect } from 'react';
+// import { CheckCircle, Trash2, ChevronDown, ChevronUp, Truck } from 'lucide-react';
+// import Sidebar from './Sidebar';
+
+// const Booking = () => {
+//   const [payments, setPayments] = useState([]);
+//   const [expandedPayment, setExpandedPayment] = useState(null);
+//   const [availableDrivers, setAvailableDrivers] = useState([]);
+
+//   useEffect(() => {
+//     fetchPayments();
+//     fetchAvailableDrivers();
+//   }, []);
+
+//   const fetchPayments = async () => {
+//     try {
+//       const response = await fetch('http://localhost:5000/api/payments');
+//       const data = await response.json();
+//       setPayments(data);
+//     } catch (error) {
+//       console.error('Error fetching payments:', error);
+//     }
+//   };
+
+//   const fetchAvailableDrivers = async () => {
+//     try {
+//       const response = await fetch('http://localhost:5000/api/payments/available-drivers');
+//       const data = await response.json();
+//       setAvailableDrivers(data);
+//     } catch (error) {
+//       console.error('Error fetching available drivers:', error);
+//     }
+//   };
+
+//   const handleConfirmPayment = async (id) => {
+//     try {
+//       const response = await fetch(`http://localhost:5000/api/payments/${id}/complete`, {
+//         method: 'PUT',
+//       });
+//       if (response.ok) {
+//         fetchPayments();
+//       }
+//     } catch (error) {
+//       console.error('Error confirming payment:', error);
+//     }
+//   };
+
+//   const handleDeletePayment = async (id) => {
+//     try {
+//       const response = await fetch(`http://localhost:5000/api/payments/${id}`, {
+//         method: 'DELETE',
+//       });
+//       if (response.ok) {
+//         fetchPayments();
+//         fetchAvailableDrivers();
+//       }
+//     } catch (error) {
+//       console.error('Error deleting payment:', error);
+//     }
+//   };
+
+//   const handleAssignDriver = async (paymentId, driverId) => {
+//     try {
+//       const response = await fetch('http://localhost:5000/api/payments/assign-driver', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({ paymentId, driverId }),
+//       });
+//       if (response.ok) {
+//         fetchPayments();
+//         fetchAvailableDrivers();
+//       }
+//     } catch (error) {
+//       console.error('Error assigning driver:', error);
+//     }
+//   };
+
+//   const handleCompleteDelivery = async (paymentId) => {
+//     try {
+//       const response = await fetch('http://localhost:5000/api/payments/complete-delivery', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({ paymentId }),
+//       });
+//       if (response.ok) {
+//         fetchPayments();
+//         fetchAvailableDrivers();
+//       }
+//     } catch (error) {
+//       console.error('Error completing delivery:', error);
+//     }
+//   };
+
+//   const toggleExpandPayment = (id) => {
+//     setExpandedPayment(expandedPayment === id ? null : id);
+//   };
+
+//   return (
+//     <div className="flex flex-col md:flex-row min-h-screen">
+//       <Sidebar />
+//       <div className="flex-grow p-6">
+//         <h1 className="text-3xl font-bold mb-6">Manage All <span className='text-green'>Payments!</span></h1>
+//         <div className="overflow-x-auto">
+//           <table className="min-w-full bg-white">
+//             <thead className="bg-gray-100">
+//               <tr>
+//                 <th className="py-3 px-4 text-left">#</th>
+//                 <th className="py-3 px-4 text-left">User</th>
+//                 <th className="py-3 px-4 text-left">Transaction ID</th>
+//                 <th className="py-3 px-4 text-left">Amount</th>
+//                 <th className="py-3 px-4 text-left">Status</th>
+//                 <th className="py-3 px-4 text-left">Items</th>
+//                 <th className="py-3 px-4 text-left">Assign Driver</th>
+//                 <th className="py-3 px-4 text-left">Actions</th>
+//               </tr>
+//             </thead>
+//             <tbody className="divide-y divide-gray-200">
+//               {payments.map((payment, index) => (
+//                 <React.Fragment key={payment._id}>
+//                   <tr className="hover:bg-gray-50">
+//                     <td className="py-4 px-4">{index + 1}</td>
+//                     <td className="py-4 px-4">{payment.userId.name}</td>
+//                     <td className="py-4 px-4">{payment.stripePaymentIntentId}</td>
+//                     <td className="py-4 px-4">${payment.amount.toFixed(2)}</td>
+//                     <td className="py-4 px-4">
+//                       <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
+//                         payment.status === 'completed' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
+//                       }`}>
+//                         {payment.status}
+//                       </span>
+//                     </td>
+//                     <td className="py-4 px-4">
+//                       <button
+//                         onClick={() => toggleExpandPayment(payment._id)}
+//                         className="flex items-center text-blue-600 hover:text-blue-800"
+//                       >
+//                         View {expandedPayment === payment._id ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+//                       </button>
+//                     </td>
+//                     <td className="py-4 px-4">
+//                       {payment.assignedDriver ? (
+//                         <span>{payment.assignedDriver.name}</span>
+//                       ) : (
+//                         <select
+//                           className="border rounded p-1 bg-slate-100"
+//                           onChange={(e) => handleAssignDriver(payment._id, e.target.value)}
+//                         >
+//                           <option value="">Select Driver</option>
+//                           {availableDrivers.map((driver) => (
+//                             <option key={driver._id} value={driver._id}>
+//                               {driver.name}
+//                             </option>
+//                           ))}
+//                         </select>
+//                       )}
+//                     </td>
+//                     <td className="py-4 px-4">
+//                       {payment.status === 'pending' && !payment.assignedDriver && (
+//                         <button
+//                           onClick={() => handleConfirmPayment(payment._id)}
+//                           className="text-green-600 hover:text-green-800 mr-2"
+//                         >
+//                           <CheckCircle size={20} />
+//                         </button>
+//                       )}
+//                       {payment.assignedDriver && payment.status !== 'completed' && (
+//                         <button
+//                           onClick={() => handleCompleteDelivery(payment._id)}
+//                           className="text-blue-600 hover:text-blue-800 mr-2"
+//                         >
+//                           <Truck size={20} />
+//                         </button>
+//                       )}
+//                       <button
+//                         onClick={() => handleDeletePayment(payment._id)}
+//                         className="text-red-600 hover:text-red-800"
+//                       >
+//                         <Trash2 size={20} />
+//                       </button>
+//                     </td>
+//                   </tr>
+//                   {expandedPayment === payment._id && (
+//                     <tr>
+//                       <td colSpan="8" className="bg-gray-50 p-4">
+//                         <h4 className="font-semibold mb-2">Order Summary:</h4>
+//                         <ul>
+//                           {payment.orderSummary.items.map((item, idx) => (
+//                             <li key={idx} className="mb-1">
+//                               {item.name} - Quantity: {item.quantity} - Price: ${item.price.toFixed(2)}
+//                             </li>
+//                           ))}
+//                         </ul>
+//                         <p className="mt-2">
+//                           <strong>Total Items:</strong> {payment.orderSummary.itemCount}
+//                         </p>
+//                         <p>
+//                           <strong>Total Price:</strong> ${payment.orderSummary.totalPrice.toFixed(2)}
+//                         </p>
+//                         {payment.assignedDriver && (
+//                           <p>
+//                             <strong>Assigned Driver:</strong> {payment.assignedDriver.name} ({payment.assignedDriver.email})
+//                           </p>
+//                         )}
+//                       </td>
+//                     </tr>
+//                   )}
+//                 </React.Fragment>
+//               ))}
+//             </tbody>
+//           </table>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Booking;
+
+
+
+
+
+
+
+
+// import React, { useState, useEffect } from 'react';
+// import { CheckCircle, Trash2, ChevronDown, ChevronUp, Truck, RefreshCw } from 'lucide-react';
+// import Sidebar from './Sidebar';
+
+// const Booking = () => {
+//   const [payments, setPayments] = useState([]);
+//   const [expandedPayment, setExpandedPayment] = useState(null);
+//   const [availableDrivers, setAvailableDrivers] = useState([]);
+
+//   useEffect(() => {
+//     fetchPayments();
+//     fetchAvailableDrivers();
+//   }, []);
+
+//   const fetchPayments = async () => {
+//     try {
+//       const response = await fetch('http://localhost:5000/api/payments');
+//       const data = await response.json();
+//       setPayments(data);
+//     } catch (error) {
+//       console.error('Error fetching payments:', error);
+//     }
+//   };
+
+//   const fetchAvailableDrivers = async () => {
+//     try {
+//       const response = await fetch('http://localhost:5000/api/payments/available-drivers');
+//       const data = await response.json();
+//       setAvailableDrivers(data);
+//     } catch (error) {
+//       console.error('Error fetching available drivers:', error);
+//     }
+//   };
+
+//   const handleConfirmPayment = async (id) => {
+//     try {
+//       const response = await fetch(`http://localhost:5000/api/payments/${id}/complete`, {
+//         method: 'PUT',
+//       });
+//       if (response.ok) {
+//         fetchPayments();
+//       }
+//     } catch (error) {
+//       console.error('Error confirming payment:', error);
+//     }
+//   };
+
+//   const handleDeletePayment = async (id) => {
+//     try {
+//       const response = await fetch(`http://localhost:5000/api/payments/${id}`, {
+//         method: 'DELETE',
+//       });
+//       if (response.ok) {
+//         fetchPayments();
+//         fetchAvailableDrivers();
+//       }
+//     } catch (error) {
+//       console.error('Error deleting payment:', error);
+//     }
+//   };
+
+//   const handleAssignDriver = async (paymentId, driverId) => {
+//     try {
+//       const response = await fetch('http://localhost:5000/api/payments/assign-driver', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({ paymentId, driverId }),
+//       });
+//       if (response.ok) {
+//         fetchPayments();
+//         fetchAvailableDrivers();
+//       }
+//     } catch (error) {
+//       console.error('Error assigning driver:', error);
+//     }
+//   };
+
+//   const handleCompleteDelivery = async (paymentId) => {
+//     try {
+//       const response = await fetch('http://localhost:5000/api/payments/complete-delivery', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({ paymentId }),
+//       });
+//       if (response.ok) {
+//         fetchPayments();
+//         fetchAvailableDrivers();
+//       }
+//     } catch (error) {
+//       console.error('Error completing delivery:', error);
+//     }
+//   };
+
+//   const handleReassignDriver = async (paymentId, driverId) => {
+//     try {
+//       const response = await fetch('http://localhost:5000/api/payments/reassign-driver', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({ paymentId, driverId }),
+//       });
+//       if (response.ok) {
+//         fetchPayments();
+//         fetchAvailableDrivers();
+//       }
+//     } catch (error) {
+//       console.error('Error reassigning driver:', error);
+//     }
+//   };
+
+//   const toggleExpandPayment = (id) => {
+//     setExpandedPayment(expandedPayment === id ? null : id);
+//   };
+
+//   return (
+//     <div className="flex flex-col md:flex-row min-h-screen">
+//       <Sidebar />
+//       <div className="flex-grow p-6">
+//         <h1 className="text-3xl font-bold mb-6">Manage All <span className='text-green'>Payments!</span></h1>
+//         <div className="overflow-x-auto">
+//           <table className="min-w-full bg-white">
+//             <thead className="bg-gray-100">
+//               <tr>
+//                 <th className="py-3 px-4 text-left">#</th>
+//                 <th className="py-3 px-4 text-left">User</th>
+//                 <th className="py-3 px-4 text-left">Transaction ID</th>
+//                 <th className="py-3 px-4 text-left">Amount</th>
+//                 <th className="py-3 px-4 text-left">Status</th>
+//                 <th className="py-3 px-4 text-left">Items</th>
+//                 <th className="py-3 px-4 text-left">Assign Driver</th>
+//                 <th className="py-3 px-4 text-left">Actions</th>
+//               </tr>
+//             </thead>
+//             <tbody className="divide-y divide-gray-200">
+//               {payments.map((payment, index) => (
+//                 <React.Fragment key={payment._id}>
+//                   <tr className="hover:bg-gray-50">
+//                     <td className="py-4 px-4">{index + 1}</td>
+//                     <td className="py-4 px-4">{payment.userId.name}</td>
+//                     <td className="py-4 px-4">{payment.stripePaymentIntentId}</td>
+//                     <td className="py-4 px-4">${payment.amount.toFixed(2)}</td>
+//                     <td className="py-4 px-4">
+//                       <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
+//                         payment.status === 'completed' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
+//                       }`}>
+//                         {payment.status}
+//                       </span>
+//                     </td>
+//                     <td className="py-4 px-4">
+//                       <button
+//                         onClick={() => toggleExpandPayment(payment._id)}
+//                         className="flex items-center text-blue-600 hover:text-blue-800"
+//                       >
+//                         View {expandedPayment === payment._id ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+//                       </button>
+//                     </td>
+//                     <td className="py-4 px-4">
+//                       {payment.status !== 'completed' ? (
+//                         payment.assignedDriver ? (
+//                           <span>{payment.assignedDriver.name}</span>
+//                         ) : (
+//                           <select
+//                             className="border rounded p-1 bg-slate-100"
+//                             onChange={(e) => handleAssignDriver(payment._id, e.target.value)}
+//                           >
+//                             <option value="">Select Driver</option>
+//                             {availableDrivers.map((driver) => (
+//                               <option key={driver._id} value={driver._id}>
+//                                 {driver.name}
+//                               </option>
+//                             ))}
+//                           </select>
+//                         )
+//                       ) : (
+//                         <select
+//                           className="border rounded p-1 bg-slate-100"
+//                           onChange={(e) => handleReassignDriver(payment._id, e.target.value)}
+//                         >
+//                           <option value="">Reassign Driver</option>
+//                           {availableDrivers.map((driver) => (
+//                             <option key={driver._id} value={driver._id}>
+//                               {driver.name}
+//                             </option>
+//                           ))}
+//                         </select>
+//                       )}
+//                     </td>
+//                     <td className="py-4 px-4">
+//                       {payment.status === 'pending' && !payment.assignedDriver && (
+//                         <button
+//                           onClick={() => handleConfirmPayment(payment._id)}
+//                           className="text-green-600 hover:text-green-800 mr-2"
+//                         >
+//                           <CheckCircle size={20} />
+//                         </button>
+//                       )}
+//                       {payment.assignedDriver && payment.status !== 'completed' && (
+//                         <button
+//                           onClick={() => handleCompleteDelivery(payment._id)}
+//                           className="text-blue-600 hover:text-blue-800 mr-2"
+//                         >
+//                           <Truck size={20} />
+//                         </button>
+//                       )}
+//                       {payment.status === 'completed' && (
+//                         <button
+//                           onClick={() => fetchAvailableDrivers()}
+//                           className="text-purple-600 hover:text-purple-800 mr-2"
+//                         >
+//                           <RefreshCw size={20} />
+//                         </button>
+//                       )}
+//                       <button
+//                         onClick={() => handleDeletePayment(payment._id)}
+//                         className="text-red-600 hover:text-red-800"
+//                       >
+//                         <Trash2 size={20} />
+//                       </button>
+//                     </td>
+//                   </tr>
+//                 {expandedPayment === payment._id && (
+//                     <tr>
+//                       <td colSpan="8" className="bg-gray-50 p-4">
+//                         <h4 className="font-semibold mb-2">Order Summary:</h4>
+//                         <ul>
+//                           {payment.orderSummary.items.map((item, idx) => (
+//                             <li key={idx} className="mb-1">
+//                               {item.name} - Quantity: {item.quantity} - Price: ${item.price.toFixed(2)}
+//                             </li>
+//                           ))}
+//                         </ul>
+//                         <p className="mt-2">
+//                           <strong>Total Items:</strong> {payment.orderSummary.itemCount}
+//                         </p>
+//                         <p>
+//                           <strong>Total Price:</strong> ${payment.orderSummary.totalPrice.toFixed(2)}
+//                         </p>
+//                         {payment.assignedDriver && (
+//                           <p>
+//                             <strong>Assigned Driver:</strong> {payment.assignedDriver.name} ({payment.assignedDriver.email})
+//                           </p>
+//                         )}
+//                       </td>
+//                     </tr>
+//                   )}
+//                 </React.Fragment>
+//               ))}
+//             </tbody>
+//           </table>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Booking;
+
+
 import React, { useState, useEffect } from 'react';
-import { CheckCircle, Trash2, ChevronDown, ChevronUp, Truck } from 'lucide-react';
+import { CheckCircle, Trash2, ChevronDown, ChevronUp, Truck, RefreshCw } from 'lucide-react';
 import Sidebar from './Sidebar';
 
 const Booking = () => {
@@ -654,20 +1146,24 @@ const Booking = () => {
                       </button>
                     </td>
                     <td className="py-4 px-4">
-                      {payment.assignedDriver ? (
-                        <span>{payment.assignedDriver.name}</span>
+                      {payment.status === 'completed' ? (
+                        <span className="text-gray-500">{payment.assignedDriver ? payment.assignedDriver.name : 'No driver assigned'}</span>
                       ) : (
-                        <select
-                          className="border rounded p-1 bg-slate-100"
-                          onChange={(e) => handleAssignDriver(payment._id, e.target.value)}
-                        >
-                          <option value="">Select Driver</option>
-                          {availableDrivers.map((driver) => (
-                            <option key={driver._id} value={driver._id}>
-                              {driver.name}
-                            </option>
-                          ))}
-                        </select>
+                        payment.assignedDriver ? (
+                          <span>{payment.assignedDriver.name}</span>
+                        ) : (
+                          <select
+                            className="border rounded p-1 bg-slate-100"
+                            onChange={(e) => handleAssignDriver(payment._id, e.target.value)}
+                          >
+                            <option value="">Select Driver</option>
+                            {availableDrivers.map((driver) => (
+                              <option key={driver._id} value={driver._id}>
+                                {driver.name}
+                              </option>
+                            ))}
+                          </select>
+                        )
                       )}
                     </td>
                     <td className="py-4 px-4">
@@ -685,6 +1181,14 @@ const Booking = () => {
                           className="text-blue-600 hover:text-blue-800 mr-2"
                         >
                           <Truck size={20} />
+                        </button>
+                      )}
+                      {payment.status !== 'completed' && (
+                        <button
+                          onClick={() => fetchAvailableDrivers()}
+                          className="text-purple-600 hover:text-purple-800 mr-2"
+                        >
+                          <RefreshCw size={20} />
                         </button>
                       )}
                       <button
@@ -731,15 +1235,3 @@ const Booking = () => {
 };
 
 export default Booking;
-
-
-
-
-
-
-
-
-
-
-
-

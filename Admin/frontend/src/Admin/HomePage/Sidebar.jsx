@@ -57,11 +57,11 @@ const Sidebar = () => {
                 Users
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/home" className="block py-2 px-4 text-gray-700 hover:bg-gray-200 rounded transition duration-200">
                 Home
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/support" className="block py-2 px-4 text-gray-700 hover:bg-gray-200 rounded transition duration-200">
                 Customer Support
