@@ -32,7 +32,7 @@
 //   useEffect(() => {
 //     const fetchOrders = async () => {
 //       try {
-//         const response = await axios.get('http://localhost:5000/api/DriveOrder/driver', {
+//         const response = await axios.get('http://localhost:4000/api/DriveOrder/driver', {
 //           withCredentials: true
 //         });
         
@@ -120,7 +120,7 @@
 //     const fetchPayments = async () => {
 //       try {
 //         const token = localStorage.getItem('driverToken');
-//         const response = await axios.get('http://localhost:5000/api/DriveOrder/driver/payments', {
+//         const response = await axios.get('http://localhost:4000/api/DriveOrder/driver/payments', {
 //           headers: {
 //             Authorization: `Bearer ${token}`
 //           }
@@ -198,7 +198,7 @@
 //     const fetchPayments = async () => {
 //       try {
 //         const token = localStorage.getItem('driverToken');
-//         const response = await axios.get('http://localhost:5000/api/DriveOrder/driver/payments', {
+//         const response = await axios.get('http://localhost:4000/api/DriveOrder/driver/payments', {
 //           headers: {
 //             Authorization: `Bearer ${token}`
 //           }
@@ -276,7 +276,7 @@
 //     const fetchPayments = async () => {
 //       try {
 //         const token = localStorage.getItem('driverToken');
-//         const response = await axios.get('http://localhost:5000/api/DriveOrder/driver/payments', {
+//         const response = await axios.get('http://localhost:4000/api/DriveOrder/driver/payments', {
 //           headers: {
 //             Authorization: `Bearer ${token}`
 //           }
@@ -358,7 +358,7 @@
 //   const fetchPayments = async () => {
 //     try {
 //       const token = localStorage.getItem('driverToken');
-//       const response = await axios.get('http://localhost:5000/api/DriveOrder/driver/payments', {
+//       const response = await axios.get('http://localhost:4000/api/DriveOrder/driver/payments', {
 //         headers: {
 //           Authorization: `Bearer ${token}`
 //         }
@@ -376,7 +376,7 @@
 //   const updatePaymentStatus = async (paymentId, newStatus) => {
 //     try {
 //       const token = localStorage.getItem('driverToken');
-//       await axios.put(`http://localhost:5000/api/DriveOrder/driver/payment/${paymentId}/status`, 
+//       await axios.put(`http://localhost:4000/api/DriveOrder/driver/payment/${paymentId}/status`, 
 //         { status: newStatus },
 //         {
 //           headers: {
@@ -471,7 +471,7 @@
 //   const fetchPayments = async () => {
 //     try {
 //       const token = localStorage.getItem('driverToken');
-//       const response = await axios.get('http://localhost:5000/api/DriveOrder/driver/payments', {
+//       const response = await axios.get('http://localhost:4000/api/DriveOrder/driver/payments', {
 //         headers: {
 //           Authorization: `Bearer ${token}`
 //         }
@@ -489,7 +489,7 @@
 //   const updatePaymentStatus = async (paymentId, newStatus) => {
 //     try {
 //       const token = localStorage.getItem('driverToken');
-//       await axios.put(`http://localhost:5000/api/DriveOrder/driver/payment/${paymentId}/status`, 
+//       await axios.put(`http://localhost:4000/api/DriveOrder/driver/payment/${paymentId}/status`, 
 //         { status: newStatus },
 //         {
 //           headers: {
@@ -630,7 +630,7 @@
 //   const fetchPayments = async () => {
 //     try {
 //       const token = localStorage.getItem('driverToken');
-//       const response = await axios.get('http://localhost:5000/api/DriveOrder/driver/payments', {
+//       const response = await axios.get('http://localhost:4000/api/DriveOrder/driver/payments', {
 //         headers: {
 //           Authorization: `Bearer ${token}`
 //         }
@@ -648,7 +648,7 @@
 //   const updatePaymentStatus = async (paymentId, newStatus) => {
 //     try {
 //       const token = localStorage.getItem('driverToken');
-//       await axios.put(`http://localhost:5000/api/DriveOrder/driver/payment/${paymentId}/status`, 
+//       await axios.put(`http://localhost:4000/api/DriveOrder/driver/payment/${paymentId}/status`, 
 //         { status: newStatus },
 //         {
 //           headers: {
@@ -800,7 +800,7 @@ function Orders() {
   const fetchPayments = async () => {
     try {
       const token = localStorage.getItem('driverToken');
-      const response = await axios.get('http://localhost:5000/api/DriveOrder/driver/payments', {
+      const response = await axios.get('http://localhost:4000/api/DriveOrder/driver/payments', {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -824,7 +824,7 @@ function Orders() {
   const updatePaymentStatus = async (paymentId, newStatus) => {
     try {
       const token = localStorage.getItem('driverToken');
-      await axios.put(`http://localhost:5000/api/DriveOrder/driver/payment/${paymentId}/status`, 
+      await axios.put(`http://localhost:4000/api/DriveOrder/driver/payment/${paymentId}/status`, 
         { status: newStatus },
         {
           headers: {

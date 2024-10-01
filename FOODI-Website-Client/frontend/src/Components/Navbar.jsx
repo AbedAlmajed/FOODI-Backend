@@ -25,7 +25,7 @@
 //           return;
 //         }
 
-//         const response = await axios.get(`http://localhost:5000/api/users/profile/${userId}`, {
+//         const response = await axios.get(`http://localhost:4000/api/users/profile/${userId}`, {
 //           headers: { Authorization: `Bearer ${token}` },
 //           withCredentials: true
 //         });
@@ -44,7 +44,7 @@
 //   const fetchCartCount = async () => {
 //     try {
 //       const token = localStorage.getItem('token');
-//       const response = await axios.get('http://localhost:5000/api/cart/count', {
+//       const response = await axios.get('http://localhost:4000/api/cart/count', {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -168,7 +168,7 @@
 //           return;
 //         }
 
-//         const response = await axios.get(`http://localhost:5000/api/users/profile/${userId}`, {
+//         const response = await axios.get(`http://localhost:4000/api/users/profile/${userId}`, {
 //           headers: { Authorization: `Bearer ${token}` },
 //           withCredentials: true
 //         });
@@ -187,7 +187,7 @@
 //   const fetchCartCount = async () => {
 //     try {
 //       const token = localStorage.getItem('token');
-//       const response = await axios.get('http://localhost:5000/api/cart/count', {
+//       const response = await axios.get('http://localhost:4000/api/cart/count', {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -308,7 +308,7 @@
 //           return;
 //         }
 
-//         const response = await axios.get(`http://localhost:5000/api/users/profile/${userId}`, {
+//         const response = await axios.get(`http://localhost:4000/api/users/profile/${userId}`, {
 //           headers: { Authorization: `Bearer ${token}` },
 //           withCredentials: true
 //         });
@@ -438,7 +438,7 @@
 //           return;
 //         }
 
-//         const response = await axios.get(`http://localhost:5000/api/users/profile/${userId}`, {
+//         const response = await axios.get(`http://localhost:4000/api/users/profile/${userId}`, {
 //           headers: { Authorization: `Bearer ${token}` },
 //           withCredentials: true
 //         });
@@ -457,7 +457,7 @@
 //   const fetchCartCount = async () => {
 //     try {
 //       const token = localStorage.getItem('token');
-//       const response = await axios.get('http://localhost:5000/api/cart/count', {
+//       const response = await axios.get('http://localhost:4000/api/cart/count', {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -582,7 +582,7 @@
 //           return;
 //         }
 
-//         const response = await axios.get(`http://localhost:5000/api/users/profile/${userId}`, {
+//         const response = await axios.get(`http://localhost:4000/api/users/profile/${userId}`, {
 //           headers: { Authorization: `Bearer ${token}` },
 //           withCredentials: true
 //         });
@@ -601,7 +601,7 @@
 //   const fetchCartCount = async () => {
 //     try {
 //       const token = localStorage.getItem('token');
-//       const response = await axios.get('http://localhost:5000/api/cart/count', {
+//       const response = await axios.get('http://localhost:4000/api/cart/count', {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -727,7 +727,7 @@ const Navbar = () => {
           return;
         }
 
-        const response = await axios.get(`http://localhost:5000/api/users/profile/${userId}`, {
+        const response = await axios.get(`http://localhost:4000/api/users/profile/${userId}`, {
           headers: { Authorization: `Bearer ${token}` },
           withCredentials: true
         });
@@ -746,7 +746,7 @@ const Navbar = () => {
   const fetchCartCount = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/cart/count', {
+      const response = await axios.get('http://localhost:4000/api/cart/count', {
         headers: { Authorization: `Bearer ${token}` },
         withCredentials: true
       });

@@ -44,8 +44,38 @@
 
 
 
+// // controllers/orderController.js
+// const Payment = require('../models/Payment');
+
+// exports.getUserOrders = async (req, res) => {
+//   try {
+//     const userId = req.user.id; // Assuming you're using authentication middleware
+
+//     const orders = await Payment.find({ userId })
+//       .sort({ createdAt: -1 }) // Sort by most recent first
+//       .select('createdAt stripePaymentIntentId amount status'); // Select only necessary fields
+
+//     const formattedOrders = orders.map(order => ({
+//       orderDate: order.createdAt.toLocaleDateString(),
+//       transactionId: order.stripePaymentIntentId,
+//       price: order.amount.toFixed(2),
+//       status: order.status
+//     }));
+
+//     res.json(formattedOrders);
+//   } catch (error) {
+//     console.error('Error fetching user orders:', error);
+//     res.status(500).json({ message: 'Error fetching orders', error: error.message });
+//   }
+// };
+
+
+
+
+
 // controllers/orderController.js
 const Payment = require('../models/Payment');
+const Driver = require('../models/driveModel');
 
 exports.getUserOrders = async (req, res) => {
   try {
@@ -53,13 +83,20 @@ exports.getUserOrders = async (req, res) => {
 
     const orders = await Payment.find({ userId })
       .sort({ createdAt: -1 }) // Sort by most recent first
-      .select('createdAt stripePaymentIntentId amount status'); // Select only necessary fields
+      .populate('assignedDriver', 'name phone') // Populate driver information
+      .lean(); // Convert to plain JavaScript object for easier manipulation
 
     const formattedOrders = orders.map(order => ({
       orderDate: order.createdAt.toLocaleDateString(),
       transactionId: order.stripePaymentIntentId,
       price: order.amount.toFixed(2),
-      status: order.status
+      status: order.status,
+      deliveryInfo: order.deliveryInfo,
+      orderSummary: order.orderSummary,
+      assignedDriver: order.assignedDriver ? {
+        name: order.assignedDriver.name,
+        phone: order.assignedDriver.phone
+      } : null
     }));
 
     res.json(formattedOrders);

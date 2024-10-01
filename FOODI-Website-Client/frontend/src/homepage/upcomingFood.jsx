@@ -89,7 +89,7 @@ const UpcomingFood = () => {
   const fetchItems = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`http://localhost:5000/api/food-soon?page=${currentPage}&limit=${ITEMS_PER_PAGE}`);
+      const response = await axios.get(`http://localhost:4000/api/food-soon?page=${currentPage}&limit=${ITEMS_PER_PAGE}`);
       setItems(response.data.items);
       setTotalPages(Math.ceil(response.data.total / ITEMS_PER_PAGE));
       setLoading(false);

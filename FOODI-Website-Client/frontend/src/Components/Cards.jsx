@@ -196,7 +196,7 @@ const Card = () => {
 
   // Fetch items from the API when the component mounts
   useEffect(() => {
-    fetch("http://localhost:5000/api/menu-items")
+    fetch("http://localhost:4000/api/menu-items")
       .then((response) => response.json())
       .then((data) => {
         // Check if the data contains the expected items array

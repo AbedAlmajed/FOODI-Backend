@@ -147,7 +147,7 @@
 //   const fetchCartItems = async () => {
 //     try {
 //       const token = localStorage.getItem('token');
-//       const response = await axios.get('http://localhost:5000/api/cart', {
+//       const response = await axios.get('http://localhost:4000/api/cart', {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -162,7 +162,7 @@
 //     try {
 //       const token = localStorage.getItem('token');
 //       const userId = localStorage.getItem('userID');
-//       const response = await axios.get(`http://localhost:5000/api/users/profile/${userId}`, {
+//       const response = await axios.get(`http://localhost:4000/api/users/profile/${userId}`, {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -176,7 +176,7 @@
 //     try {
 //       const token = localStorage.getItem('token');
 //       await axios.post(
-//         'http://localhost:5000/api/cart/update',
+//         'http://localhost:4000/api/cart/update',
 //         { itemId, quantity: change },
 //         {
 //           headers: { Authorization: `Bearer ${token}` },
@@ -192,7 +192,7 @@
 //   const handleRemoveItem = async (itemId) => {
 //     try {
 //       const token = localStorage.getItem('token');
-//       await axios.delete(`http://localhost:5000/api/cart/remove/${itemId}`, {
+//       await axios.delete(`http://localhost:4000/api/cart/remove/${itemId}`, {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -325,7 +325,7 @@
 //   const fetchCartItems = async () => {
 //     try {
 //       const token = localStorage.getItem('token');
-//       const response = await axios.get('http://localhost:5000/api/cart', {
+//       const response = await axios.get('http://localhost:4000/api/cart', {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -340,7 +340,7 @@
 //     try {
 //       const token = localStorage.getItem('token');
 //       const userId = localStorage.getItem('userID');
-//       const response = await axios.get(`http://localhost:5000/api/users/profile/${userId}`, {
+//       const response = await axios.get(`http://localhost:4000/api/users/profile/${userId}`, {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -354,7 +354,7 @@
 //     try {
 //       const token = localStorage.getItem('token');
 //       await axios.post(
-//         'http://localhost:5000/api/cart/update',
+//         'http://localhost:4000/api/cart/update',
 //         { itemId, quantity: change },
 //         {
 //           headers: { Authorization: `Bearer ${token}` },
@@ -380,7 +380,7 @@
 //       if (result.isConfirmed) {
 //         try {
 //           const token = localStorage.getItem('token');
-//           await axios.delete(`http://localhost:5000/api/cart/remove/${itemId}`, {
+//           await axios.delete(`http://localhost:4000/api/cart/remove/${itemId}`, {
 //             headers: { Authorization: `Bearer ${token}` },
 //             withCredentials: true
 //           });
@@ -524,7 +524,7 @@
 //   const fetchCartItems = async () => {
 //     try {
 //       const token = localStorage.getItem('token');
-//       const response = await axios.get('http://localhost:5000/api/cart', {
+//       const response = await axios.get('http://localhost:4000/api/cart', {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -540,7 +540,7 @@
 //     try {
 //       const token = localStorage.getItem('token');
 //       const userId = localStorage.getItem('userID');
-//       const response = await axios.get(`http://localhost:5000/api/users/profile/${userId}`, {
+//       const response = await axios.get(`http://localhost:4000/api/users/profile/${userId}`, {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -559,7 +559,7 @@
 //         await handleRemoveItem(itemId);
 //       } else {
 //         await axios.post(
-//           'http://localhost:5000/api/cart/update',
+//           'http://localhost:4000/api/cart/update',
 //           { itemId, quantity: newQuantity },
 //           {
 //             headers: { Authorization: `Bearer ${token}` },
@@ -592,7 +592,7 @@
 
 //     try {
 //       const token = localStorage.getItem('token');
-//       await axios.delete(`http://localhost:5000/api/cart/remove/${itemId}`, {
+//       await axios.delete(`http://localhost:4000/api/cart/remove/${itemId}`, {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -737,7 +737,7 @@
 //   const fetchCartItems = async () => {
 //     try {
 //       const token = localStorage.getItem('token');
-//       const response = await axios.get('http://localhost:5000/api/cart', {
+//       const response = await axios.get('http://localhost:4000/api/cart', {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -753,7 +753,7 @@
 //     try {
 //       const token = localStorage.getItem('token');
 //       const userId = localStorage.getItem('userID');
-//       const response = await axios.get(`http://localhost:5000/api/users/profile/${userId}`, {
+//       const response = await axios.get(`http://localhost:4000/api/users/profile/${userId}`, {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -772,7 +772,7 @@
 //         await handleRemoveItem(itemId);
 //       } else {
 //         const response = await axios.post(
-//           'http://localhost:5000/api/cart/update',
+//           'http://localhost:4000/api/cart/update',
 //           { itemId, quantity: newQuantity },
 //           {
 //             headers: { Authorization: `Bearer ${token}` },
@@ -799,7 +799,7 @@
 //   const handleRemoveItem = async (itemId) => {
 //     try {
 //       const token = localStorage.getItem('token');
-//       const response = await axios.delete(`http://localhost:5000/api/cart/remove/${itemId}`, {
+//       const response = await axios.delete(`http://localhost:4000/api/cart/remove/${itemId}`, {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -947,7 +947,7 @@
 //   const fetchCartItems = async () => {
 //     try {
 //       const token = localStorage.getItem('token');
-//       const response = await axios.get('http://localhost:5000/api/cart', {
+//       const response = await axios.get('http://localhost:4000/api/cart', {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -963,7 +963,7 @@
 //     try {
 //       const token = localStorage.getItem('token');
 //       const userId = localStorage.getItem('userID');
-//       const response = await axios.get(`http://localhost:5000/api/users/profile/${userId}`, {
+//       const response = await axios.get(`http://localhost:4000/api/users/profile/${userId}`, {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -982,7 +982,7 @@
 //         await handleRemoveItem(itemId);
 //       } else {
 //         const response = await axios.post(
-//           'http://localhost:5000/api/cart/update',
+//           'http://localhost:4000/api/cart/update',
 //           { itemId, quantity: newQuantity },
 //           {
 //             headers: { Authorization: `Bearer ${token}` },
@@ -1024,7 +1024,7 @@
 
 //       if (result.isConfirmed) {
 //         const token = localStorage.getItem('token');
-//         const response = await axios.delete(`http://localhost:5000/api/cart/remove/${itemId}`, {
+//         const response = await axios.delete(`http://localhost:4000/api/cart/remove/${itemId}`, {
 //           headers: { Authorization: `Bearer ${token}` },
 //           withCredentials: true
 //         });
@@ -1175,7 +1175,7 @@
 //   const fetchCartItems = async () => {
 //     try {
 //       const token = localStorage.getItem('token');
-//       const response = await axios.get('http://localhost:5000/api/cart', {
+//       const response = await axios.get('http://localhost:4000/api/cart', {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -1191,7 +1191,7 @@
 //     try {
 //       const token = localStorage.getItem('token');
 //       const userId = localStorage.getItem('userID');
-//       const response = await axios.get(`http://localhost:5000/api/users/profile/${userId}`, {
+//       const response = await axios.get(`http://localhost:4000/api/users/profile/${userId}`, {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -1209,7 +1209,7 @@
 //         await handleRemoveItem(itemId);
 //       } else {
 //         const response = await axios.post(
-//           'http://localhost:5000/api/cart/update',
+//           'http://localhost:4000/api/cart/update',
 //           { itemId, quantity: newQuantity },
 //           {
 //             headers: { Authorization: `Bearer ${token}` },
@@ -1249,7 +1249,7 @@
 
 //       if (result.isConfirmed) {
 //         const token = localStorage.getItem('token');
-//         const response = await axios.delete(`http://localhost:5000/api/cart/remove/${itemId}`, {
+//         const response = await axios.delete(`http://localhost:4000/api/cart/remove/${itemId}`, {
 //           headers: { Authorization: `Bearer ${token}` },
 //           withCredentials: true
 //         });
@@ -1398,7 +1398,7 @@
 //   const fetchCartItems = async () => {
 //     try {
 //       const token = localStorage.getItem('token');
-//       const response = await axios.get('http://localhost:5000/api/cart', {
+//       const response = await axios.get('http://localhost:4000/api/cart', {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -1414,7 +1414,7 @@
 //     try {
 //       const token = localStorage.getItem('token');
 //       const userId = localStorage.getItem('userID');
-//       const response = await axios.get(`http://localhost:5000/api/users/profile/${userId}`, {
+//       const response = await axios.get(`http://localhost:4000/api/users/profile/${userId}`, {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -1429,7 +1429,7 @@
 //     try {
 //       const token = localStorage.getItem('token');
 //       const userId = localStorage.getItem('userID');
-//       const response = await axios.get(`http://localhost:5000/api/custom-food/${userId}`, {
+//       const response = await axios.get(`http://localhost:4000/api/custom-food/${userId}`, {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -1447,7 +1447,7 @@
 //         await handleRemoveItem(itemId);
 //       } else {
 //         const response = await axios.post(
-//           'http://localhost:5000/api/cart/update',
+//           'http://localhost:4000/api/cart/update',
 //           { itemId, quantity: newQuantity },
 //           {
 //             headers: { Authorization: `Bearer ${token}` },
@@ -1487,7 +1487,7 @@
 
 //       if (result.isConfirmed) {
 //         const token = localStorage.getItem('token');
-//         const response = await axios.delete(`http://localhost:5000/api/cart/remove/${itemId}`, {
+//         const response = await axios.delete(`http://localhost:4000/api/cart/remove/${itemId}`, {
 //           headers: { Authorization: `Bearer ${token}` },
 //           withCredentials: true
 //         });
@@ -1679,7 +1679,7 @@
 //   const fetchCartItems = async () => {
 //     try {
 //       const token = localStorage.getItem('token');
-//       const response = await axios.get('http://localhost:5000/api/cart', {
+//       const response = await axios.get('http://localhost:4000/api/cart', {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -1694,7 +1694,7 @@
 //     try {
 //       const token = localStorage.getItem('token');
 //       const userId = localStorage.getItem('userID');
-//       const response = await axios.get(`http://localhost:5000/api/users/profile/${userId}`, {
+//       const response = await axios.get(`http://localhost:4000/api/users/profile/${userId}`, {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -1709,7 +1709,7 @@
 //     try {
 //       const token = localStorage.getItem('token');
 //       const userId = localStorage.getItem('userID');
-//       const response = await axios.get(`http://localhost:5000/api/custom-food/${userId}`, {
+//       const response = await axios.get(`http://localhost:4000/api/custom-food/${userId}`, {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -1739,7 +1739,7 @@
 //         await handleRemoveItem(itemId);
 //       } else {
 //         const response = await axios.post(
-//           'http://localhost:5000/api/cart/update',
+//           'http://localhost:4000/api/cart/update',
 //           { itemId, quantity: newQuantity },
 //           {
 //             headers: { Authorization: `Bearer ${token}` },
@@ -1777,7 +1777,7 @@
 
 //       if (result.isConfirmed) {
 //         const token = localStorage.getItem('token');
-//         await axios.delete(`http://localhost:5000/api/cart/remove/${itemId}`, {
+//         await axios.delete(`http://localhost:4000/api/cart/remove/${itemId}`, {
 //           headers: { Authorization: `Bearer ${token}` },
 //           withCredentials: true
 //         });
@@ -1961,7 +1961,7 @@
 //   const fetchCartItems = async () => {
 //     try {
 //       const token = localStorage.getItem('token');
-//       const response = await axios.get('http://localhost:5000/api/cart', {
+//       const response = await axios.get('http://localhost:4000/api/cart', {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -1976,7 +1976,7 @@
 //     try {
 //       const token = localStorage.getItem('token');
 //       const userId = localStorage.getItem('userID');
-//       const response = await axios.get(`http://localhost:5000/api/users/profile/${userId}`, {
+//       const response = await axios.get(`http://localhost:4000/api/users/profile/${userId}`, {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -2002,7 +2002,7 @@
 //         await handleRemoveItem(itemId);
 //       } else {
 //         const response = await axios.post(
-//           'http://localhost:5000/api/cart/update',
+//           'http://localhost:4000/api/cart/update',
 //           { itemId, quantity: newQuantity },
 //           {
 //             headers: { Authorization: `Bearer ${token}` },
@@ -2040,7 +2040,7 @@
 
 //       if (result.isConfirmed) {
 //         const token = localStorage.getItem('token');
-//         await axios.delete(`http://localhost:5000/api/cart/remove/${itemId}`, {
+//         await axios.delete(`http://localhost:4000/api/cart/remove/${itemId}`, {
 //           headers: { Authorization: `Bearer ${token}` },
 //           withCredentials: true
 //         });
@@ -2193,7 +2193,7 @@ export default function Cart() {
   const fetchCartItems = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/cart', {
+      const response = await axios.get('http://localhost:4000/api/cart', {
         headers: { Authorization: `Bearer ${token}` },
         withCredentials: true
       });
@@ -2209,7 +2209,7 @@ export default function Cart() {
     try {
       const token = localStorage.getItem('token');
       const userId = localStorage.getItem('userID');
-      const response = await axios.get(`http://localhost:5000/api/users/profile/${userId}`, {
+      const response = await axios.get(`http://localhost:4000/api/users/profile/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
         withCredentials: true
       });
@@ -2237,7 +2237,7 @@ export default function Cart() {
         await handleRemoveItem(itemId, isCustom);
       } else {
         const response = await axios.post(
-          'http://localhost:5000/api/cart/update',
+          'http://localhost:4000/api/cart/update',
           { itemId, quantity: newQuantity, isCustom },
           {
             headers: { Authorization: `Bearer ${token}` },
@@ -2285,7 +2285,7 @@ export default function Cart() {
 
       if (result.isConfirmed) {
         const token = localStorage.getItem('token');
-        await axios.delete(`http://localhost:5000/api/cart/remove/${itemId}?isCustom=${isCustom}`, {
+        await axios.delete(`http://localhost:4000/api/cart/remove/${itemId}?isCustom=${isCustom}`, {
           headers: { Authorization: `Bearer ${token}` },
           withCredentials: true
         });

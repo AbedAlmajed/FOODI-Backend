@@ -102,7 +102,7 @@
 //   const fetchCartItems = async () => {
 //     try {
 //       const token = localStorage.getItem('token');
-//       const response = await axios.get('http://localhost:5000/api/cart', {
+//       const response = await axios.get('http://localhost:4000/api/cart', {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -272,7 +272,7 @@
 
 //     // Send payment and delivery info to your server
 //     try {
-//       const response = await axios.post('http://localhost:5000/api/payment', {
+//       const response = await axios.post('http://localhost:4000/api/payment', {
 //         paymentMethodId: paymentMethod.id,
 //         amount: Math.round(orderSummary.totalPrice * 100), // Convert to cents
 //         deliveryInfo,
@@ -401,7 +401,7 @@
 //   const fetchCartItems = async () => {
 //     try {
 //       const token = localStorage.getItem('token');
-//       const response = await axios.get('http://localhost:5000/api/cart', {
+//       const response = await axios.get('http://localhost:4000/api/cart', {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -536,7 +536,7 @@
 //       }
 
 //       // Send payment and delivery info to your server
-//       const response = await axios.post('http://localhost:5000/api/payment', {
+//       const response = await axios.post('http://localhost:4000/api/payment', {
 //         paymentMethodId: paymentMethod.id,
 //         amount: Math.round(orderSummary.totalPrice * 100), // Convert to cents
 //         deliveryInfo,
@@ -672,7 +672,7 @@
 //   const fetchCartItems = async () => {
 //     try {
 //       const token = localStorage.getItem('token');
-//       const response = await axios.get('http://localhost:5000/api/cart', {
+//       const response = await axios.get('http://localhost:4000/api/cart', {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -810,7 +810,7 @@ const CheckoutForm = ({ orderSummary, onSuccess }) => {
       const token = localStorage.getItem('token');
   
       // Send payment and delivery info to your server
-      const response = await axios.post('http://localhost:5000/api/payment', {
+      const response = await axios.post('http://localhost:4000/api/payment', {
         paymentMethodId: paymentMethod.id,
         amount: Math.round(orderSummary.totalPrice * 100), // Convert to cents
         deliveryInfo,
@@ -826,7 +826,7 @@ const CheckoutForm = ({ orderSummary, onSuccess }) => {
   
       if (response.data.success) {
         // Clear the cart after successful payment
-        await axios.post('http://localhost:5000/api/cart/clear', {}, {
+        await axios.post('http://localhost:4000/api/cart/clear', {}, {
           headers: { Authorization: `Bearer ${token}` },
           withCredentials: true
         });
@@ -952,7 +952,7 @@ export default function Payment() {
   const fetchCartItems = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/cart', {
+      const response = await axios.get('http://localhost:4000/api/cart', {
         headers: { Authorization: `Bearer ${token}` },
         withCredentials: true
       });

@@ -101,7 +101,7 @@ const Order = () => {
             const token = localStorage.getItem('token');
             if (token) {
                 try {
-                    const response = await axios.get('http://localhost:5000/api/orders', {
+                    const response = await axios.get('http://localhost:4000/api/orders', {
                         headers: {
                             'Authorization': `Bearer ${token}`
                         }
@@ -137,7 +137,7 @@ const Order = () => {
                         <tr className="bg-green text-white uppercase text-sm leading-normal">
                             <th className="py-3 px-6 text-left">#</th>
                             <th className="py-3 px-6 text-left">Order Date</th>
-                            <th className="py-3 px-6 text-left">Transaction Id</th>
+                            <th className="py-3 px-6 text-left"></th>
                             <th className="py-3 px-6 text-left">Price</th>
                             <th className="py-3 px-6 text-left">Status</th>
                             <th className="py-3 px-6 text-left">Action</th>

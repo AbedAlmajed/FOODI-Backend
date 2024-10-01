@@ -12,7 +12,7 @@
 
 //   const fetchComments = async () => {
 //     try {
-//       const response = await axios.get(`http://localhost:5000/api/comments/${menuItemId}`);
+//       const response = await axios.get(`http://localhost:4000/api/comments/${menuItemId}`);
 //       setComments(response.data);
 //     } catch (error) {
 //       console.error('Error fetching comments:', error);
@@ -23,7 +23,7 @@
 //     e.preventDefault();
 //     try {
 //       const token = localStorage.getItem('token'); // Assuming you store the token in localStorage
-//       await axios.post('http://localhost:5000/api/comments', 
+//       await axios.post('http://localhost:4000/api/comments', 
 //         { menuItemId, content: newComment },
 //         { headers: { Authorization: `Bearer ${token}` } }
 //       );
@@ -103,7 +103,7 @@
 
 //   const fetchComments = async () => {
 //     try {
-//       const response = await axios.get(`http://localhost:5000/api/comments/${menuItemId}`);
+//       const response = await axios.get(`http://localhost:4000/api/comments/${menuItemId}`);
 //       setComments(response.data);
 //     } catch (error) {
 //       console.error('Error fetching comments:', error);
@@ -114,7 +114,7 @@
 //     e.preventDefault();
 //     try {
 //       const token = localStorage.getItem('token');
-//       const response = await axios.post('http://localhost:5000/api/comments', 
+//       const response = await axios.post('http://localhost:4000/api/comments', 
 //         { menuItemId, content: newComment, parentId },
 //         { headers: { Authorization: `Bearer ${token}` } }
 //       );
@@ -137,7 +137,7 @@
 //   const handleEdit = async (commentId, newContent) => {
 //     try {
 //       const token = localStorage.getItem('token');
-//       await axios.put(`http://localhost:5000/api/comments/${commentId}`, 
+//       await axios.put(`http://localhost:4000/api/comments/${commentId}`, 
 //         { content: newContent },
 //         { headers: { Authorization: `Bearer ${token}` } }
 //       );
@@ -153,7 +153,7 @@
 //   const handleDelete = async (commentId) => {
 //     try {
 //       const token = localStorage.getItem('token');
-//       await axios.delete(`http://localhost:5000/api/comments/${commentId}`, 
+//       await axios.delete(`http://localhost:4000/api/comments/${commentId}`, 
 //         { headers: { Authorization: `Bearer ${token}` } }
 //       );
 //       setComments(comments.filter(comment => comment._id !== commentId));
@@ -291,7 +291,7 @@ const CommentSection = ({ menuItemId }) => {
 
   const fetchComments = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/comments/${menuItemId}`);
+      const response = await axios.get(`http://localhost:4000/api/comments/${menuItemId}`);
       setComments(response.data);
     } catch (error) {
       console.error('Error fetching comments:', error);
@@ -317,7 +317,7 @@ const CommentSection = ({ menuItemId }) => {
       
       console.log('Sending comment data:', commentData);
 
-      const response = await axios.post('http://localhost:5000/api/comments', 
+      const response = await axios.post('http://localhost:4000/api/comments', 
         commentData,
         { 
           headers: { 
@@ -362,7 +362,7 @@ const CommentSection = ({ menuItemId }) => {
         return;
       }
 
-      await axios.put(`http://localhost:5000/api/comments/${commentId}`, 
+      await axios.put(`http://localhost:4000/api/comments/${commentId}`, 
         { content: newContent },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -383,7 +383,7 @@ const CommentSection = ({ menuItemId }) => {
         return;
       }
 
-      await axios.delete(`http://localhost:5000/api/comments/${commentId}`, 
+      await axios.delete(`http://localhost:4000/api/comments/${commentId}`, 
         { headers: { Authorization: `Bearer ${token}` } }
       );
       fetchComments();

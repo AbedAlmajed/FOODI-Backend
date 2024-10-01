@@ -222,7 +222,7 @@
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
 //     try {
-//       const response = await axios.post('http://localhost:5000/api/custom-food', formData);
+//       const response = await axios.post('http://localhost:4000/api/custom-food', formData);
       
 //       if (response.status === 201) {
 //         Swal.fire({
@@ -343,7 +343,7 @@
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
 //     try {
-//       const response = await axios.post('http://localhost:5000/api/custom-food', 
+//       const response = await axios.post('http://localhost:4000/api/custom-food', 
 //         { ...formData, userId },
 //         { 
 //           headers: { 
@@ -491,7 +491,7 @@
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
 //     try {
-//       const response = await axios.post('http://localhost:5000/api/custom-food', 
+//       const response = await axios.post('http://localhost:4000/api/custom-food', 
 //         { ...formData, userId },
 //         { 
 //           headers: { 
@@ -668,7 +668,7 @@
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
 //     try {
-//       const response = await axios.post('http://localhost:5000/api/custom-food', 
+//       const response = await axios.post('http://localhost:4000/api/custom-food', 
 //         { ...formData, userId },
 //         { 
 //           headers: { 
@@ -845,7 +845,7 @@
 
 //   const fetchApprovedCustomItems = async (token, userId) => {
 //     try {
-//       const response = await axios.get(`http://localhost:5000/api/custom-food/${userId}`, {
+//       const response = await axios.get(`http://localhost:4000/api/custom-food/${userId}`, {
 //         headers: { Authorization: `Bearer ${token}` },
 //         withCredentials: true
 //       });
@@ -864,7 +864,7 @@
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
 //     try {
-//       const response = await axios.post('http://localhost:5000/api/custom-food', 
+//       const response = await axios.post('http://localhost:4000/api/custom-food', 
 //         { ...formData, userId },
 //         { 
 //           headers: { 
@@ -1075,7 +1075,7 @@ export default function CustomFood() {
 
   const fetchApprovedCustomItems = async (token, userId) => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/custom-food/${userId}`, {
+      const response = await axios.get(`http://localhost:4000/api/custom-food/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
         withCredentials: true
       });
@@ -1094,7 +1094,7 @@ export default function CustomFood() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/custom-food', 
+      const response = await axios.post('http://localhost:4000/api/custom-food', 
         { ...formData, userId },
         { 
           headers: { 
@@ -1142,7 +1142,7 @@ export default function CustomFood() {
 
     if (result.isConfirmed) {
       try {
-        await axios.delete(`http://localhost:5000/api/custom-food/${itemId}`, {
+        await axios.delete(`http://localhost:4000/api/custom-food/${itemId}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         Swal.fire('Deleted!', 'Your custom food item has been deleted.', 'success');
@@ -1156,7 +1156,7 @@ export default function CustomFood() {
 
   const handleAddToCart = async (itemId) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/cart/add', 
+      const response = await axios.post('http://localhost:4000/api/cart/add', 
         { itemId, quantity: 1, isCustom: true },
         { headers: { Authorization: `Bearer ${token}` } }
       );

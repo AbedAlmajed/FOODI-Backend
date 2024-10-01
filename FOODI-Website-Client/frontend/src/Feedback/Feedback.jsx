@@ -10,7 +10,7 @@
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
 //     try {
-//       const response = await fetch('http://localhost:5000/api/feedback', {
+//       const response = await fetch('http://localhost:4000/api/feedback', {
 //         method: 'POST',
 //         headers: {
 //           'Content-Type': 'application/json',
@@ -101,7 +101,7 @@
 
 //   const fetchFeedback = async () => {
 //     try {
-//       const response = await fetch('http://localhost:5000/api/feedback');
+//       const response = await fetch('http://localhost:4000/api/feedback');
 //       if (response.ok) {
 //         const data = await response.json();
 //         setFeedbackEntries(data);
@@ -116,7 +116,7 @@
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
 //     try {
-//       const response = await fetch('http://localhost:5000/api/feedback', {
+//       const response = await fetch('http://localhost:4000/api/feedback', {
 //         method: 'POST',
 //         headers: {
 //           'Content-Type': 'application/json',
@@ -247,7 +247,7 @@
 
 //   const fetchUserFeedback = async () => {
 //     try {
-//       const response = await fetch('http://localhost:5000/api/feedback/', {
+//       const response = await fetch('http://localhost:4000/api/feedback/', {
 //         headers: {
 //           'Authorization': `Bearer ${localStorage.getItem('token')}` // Assuming you store the token in localStorage
 //         }
@@ -263,7 +263,7 @@
 
 //   const fetchApprovedFeedback = async () => {
 //     try {
-//       const response = await fetch('http://localhost:5000/api/feedback/approved');
+//       const response = await fetch('http://localhost:4000/api/feedback/approved');
 //       if (response.ok) {
 //         const data = await response.json();
 //         setApprovedFeedbacks(data);
@@ -401,7 +401,7 @@
 
 //   const fetchFeedback = async () => {
 //     try {
-//       const response = await fetch('http://localhost:5000/api/feedback');
+//       const response = await fetch('http://localhost:4000/api/feedback');
 //       if (response.ok) {
 //         const data = await response.json();
 //         setFeedbackEntries(data);
@@ -417,7 +417,7 @@
 // const handleSubmit = async (e) => {
 //   e.preventDefault();
 //   try {
-//     const response = await fetch('http://localhost:5000/api/feedback', {
+//     const response = await fetch('http://localhost:4000/api/feedback', {
 //       method: 'POST',
 //       headers: {
 //         'Content-Type': 'application/json',
@@ -540,7 +540,7 @@
 
 //   const fetchFeedback = async () => {
 //     try {
-//       const response = await fetch('http://localhost:5000/api/feedback');
+//       const response = await fetch('http://localhost:4000/api/feedback');
 //       if (response.ok) {
 //         const data = await response.json();
 //         setFeedbackEntries(data);
@@ -554,7 +554,7 @@
 
 //   const fetchUserFeedback = async () => {
 //     try {
-//       const response = await fetch('http://localhost:5000/api/feedback/user', {
+//       const response = await fetch('http://localhost:4000/api/feedback/user', {
 //         headers: {
 //           'Authorization': `Bearer ${localStorage.getItem('token')}`
 //         }
@@ -575,7 +575,7 @@
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
 //     try {
-//       const response = await fetch('http://localhost:5000/api/feedback', {
+//       const response = await fetch('http://localhost:4000/api/feedback', {
 //         method: userFeedback ? 'PUT' : 'POST',
 //         headers: {
 //           'Content-Type': 'application/json',
@@ -709,7 +709,7 @@ const FeedbackPage = () => {
 
   const fetchFeedback = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/feedback');
+      const response = await fetch('http://localhost:4000/api/feedback');
       if (response.ok) {
         const data = await response.json();
         setFeedbackEntries(data);
@@ -723,7 +723,7 @@ const FeedbackPage = () => {
 
   const fetchUserFeedback = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/feedback/user', {
+      const response = await fetch('http://localhost:4000/api/feedback/user', {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
@@ -744,7 +744,7 @@ const FeedbackPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/feedback', {
+      const response = await fetch('http://localhost:4000/api/feedback', {
         method: userFeedback ? 'PUT' : 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -13,7 +13,7 @@ const MenuItemDetails = () => {
   useEffect(() => {
     const fetchItem = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/menu-items/${id}`);
+        const response = await axios.get(`http://localhost:4000/api/menu-items/${id}`);
         setItem(response.data);
       } catch (error) {
         console.error('Error fetching menu item:', error);

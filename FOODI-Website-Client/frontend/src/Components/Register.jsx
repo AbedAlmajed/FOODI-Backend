@@ -27,7 +27,7 @@ export default function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/users/register', {
+      const response = await axios.post('http://localhost:4000/api/users/register', {
         name,
         email,
         password,
@@ -46,7 +46,7 @@ export default function Register() {
   };
 
   const handleGoogleLogin = () => {
-    const url = 'http://localhost:5000/api/users/google';
+    const url = 'http://localhost:4000/api/users/google';
     window.location.href = url;
   };
 

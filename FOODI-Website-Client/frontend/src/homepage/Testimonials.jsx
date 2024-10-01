@@ -138,7 +138,7 @@ const Testimonials = () => {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/feedback');
+        const response = await axios.get('http://localhost:4000/api/feedback');
         const approvedFeedback = response.data.filter(feedback => feedback.isApproved);
         setTestimonials(approvedFeedback);
       } catch (error) {

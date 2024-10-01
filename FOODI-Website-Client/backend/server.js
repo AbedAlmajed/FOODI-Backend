@@ -18,7 +18,7 @@ const cartRoutes = require('./routes/cartRoutes');
 const customFoodRoutes = require('./routes/customFood');
 const feedbackRoutes = require('./routes/feedbackRoutes');
 
-app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+app.use(cors({ origin: 'http://localhost:5174', credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(passport.initialize());
@@ -56,5 +56,5 @@ app.use('/api', paymentRoutes);
 
 app.use('/api/DriveOrder', require('./routes/DriveOrderRoutes'));
 //
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

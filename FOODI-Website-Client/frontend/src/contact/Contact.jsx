@@ -27,7 +27,7 @@ export default function Contact() {
     event.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/api/contact', formData);
+      const response = await axios.post('http://localhost:4000/api/contact', formData);
 
       // Check if the response status is successful
       if (response.status === 201) {
