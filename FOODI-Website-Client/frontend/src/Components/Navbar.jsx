@@ -785,7 +785,7 @@ const Navbar = () => {
     <>
       <li><Link to="/" className="text-green">Home</Link></li>
       <li><Link to="/Menu">Menu</Link></li>
-      <li><Link to="/contact">Contact us</Link></li>
+      <li><Link to="/contact">Get In Touch</Link></li>
       <li><Link to="/custom">Custom Your Food</Link></li>
       <li><Link to="/order">My Orders</Link></li>
       {isLoggedIn && (

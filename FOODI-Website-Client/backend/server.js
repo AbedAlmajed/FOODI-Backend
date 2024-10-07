@@ -18,7 +18,7 @@ const cartRoutes = require('./routes/cartRoutes');
 const customFoodRoutes = require('./routes/customFood');
 const feedbackRoutes = require('./routes/feedbackRoutes');
 
-app.use(cors({ origin: 'http://localhost:5174', credentials: true }));
+app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(passport.initialize());
