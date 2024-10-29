@@ -124,7 +124,7 @@ const UpcomingFood = () => {
             <div className="p-4">
               <h3 className="text-lg font-semibold mb-2 text-gray-900">{item.recipeName}</h3>
               <p className="text-gray-700 mb-2">{item.recipeDetails}</p>
-              <p className="text-green-600 font-bold mb-4">${item.price.toFixed(2)}</p>
+              <p className="text-green-600 font-bold mb-4">JD{item.price.toFixed(2)}</p>
             </div>
           </div>
         ))}

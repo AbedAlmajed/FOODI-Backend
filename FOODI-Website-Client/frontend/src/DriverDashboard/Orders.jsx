@@ -853,7 +853,7 @@ function Orders() {
       <Sidebar />
       <div className="flex-1 overflow-auto ml-64">
         <div className="p-10">
-          <h1 className="text-2xl font-bold mb-5">Your Payments</h1>
+          <h1 className="text-2xl font-bold mb-5">Your Orders</h1>
           {loading && <div>Loading...</div>}
           {error && <div className="text-red-500">Error: {error}</div>}
           {!loading && !error && (
@@ -862,7 +862,7 @@ function Orders() {
             ) : (
               <>
                 <div className="mb-4">
-                  <strong>Total Delivery Commission: ${totalCommission.toFixed(2)}</strong>
+                  <strong>Total Delivery Commission: JD{totalCommission.toFixed(2)}</strong>
                 </div>
                 <div className="overflow-x-auto">
                   <table className="min-w-full bg-white">
@@ -883,13 +883,13 @@ function Orders() {
                         <tr key={payment._id}>
                           <td className="py-2 px-4 border-b">{payment._id}</td>
                           <td className="py-2 px-4 border-b">{payment.userId?.name || 'N/A'}</td>
-                          <td className="py-2 px-4 border-b">${payment.amount}</td>
+                          <td className="py-2 px-4 border-b">JD{payment.amount}</td>
                           <td className="py-2 px-4 border-b">{payment.status}</td>
                           <td className="py-2 px-4 border-b">{new Date(payment.createdAt).toLocaleDateString()}</td>
                           <td className="py-2 px-4 border-b">
                             {payment.deliveryInfo?.address}, {payment.deliveryInfo?.city}
                           </td>
-                          <td className="py-2 px-4 border-b">${(payment.amount * 0.05).toFixed(2)}</td>
+                          <td className="py-2 px-4 border-b">JD{(payment.amount * 0.05).toFixed(2)}</td>
                           <td className="py-2 px-4 border-b">
                             <select
                               value={payment.status}
@@ -898,11 +898,11 @@ function Orders() {
                             >
                               <option value="pending">Pending</option>
                               <option value="completed">Completed</option>
-                              <option value="failed">Failed</option>
+                              {/* <option value="failed">Failed</option> */}
                             </select>
                             <button
                               onClick={() => viewOrderItems(payment)}
-                              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"
+                              className="bg-green hover:bg-[#059212] text-white font-bold py-1 px-2 rounded"
                             >
                               View Items
                             </button>
@@ -932,7 +932,7 @@ function Orders() {
                 <div className="items-center px-4 py-3">
                   <button
                     id="ok-btn"
-                    className="px-4 py-2 bg-blue-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                    className="px-4 py-2 bg-green text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-[#059212] focus:outline-none focus:ring-2 focus:ring-blue-300"
                     onClick={() => setSelectedOrder(null)}
                   >
                     Close

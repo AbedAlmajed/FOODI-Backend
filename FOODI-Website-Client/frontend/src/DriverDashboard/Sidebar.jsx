@@ -179,8 +179,8 @@ function Sidebar() {
   };
 
   return (
-    <div className="w-64 bg-gray-800 text-white h-screen flex flex-col p-4 fixed left-0 top-0">
-      <h2 className="text-2xl font-bold mb-6 text-left">Dashboard</h2>
+    <div className="w-64 bg-[#059212] text-white h-screen flex flex-col p-4 fixed left-0 top-0">
+      <h2 className="text-2xl font-bold mb-6 text-left">Driver Dashboard</h2>
       <nav className="flex-grow">
         <ul className="space-y-4 text-left"> {/* Add space-y-4 for consistent spacing */}
           <li>

@@ -939,7 +939,7 @@ const Card = () => {
               <div className="p-4">
                 <h3 className="text-lg font-semibold mb-2 text-gray-900">{item.recipeName}</h3>
                 <p className="text-gray mb-2">{item.recipeDetails}</p>
-                <p className="text-green-600 font-bold mb-4">${item.price.toFixed(2)}</p>
+                <p className="text-green-600 font-bold mb-4">JD{item.price.toFixed(2)}</p>
                 <button 
                   className="bg-green text-white px-4 py-2 rounded-lg hover:bg-black transition-colors duration-300"
                   onClick={() => handleAddToCart(item._id)}
@@ -947,7 +947,7 @@ const Card = () => {
                   Add to Cart
                 </button>
                 <Link to={`/menu-item/${item._id}`} className="ml-2">
-                  <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300">
+                  <button className="bg-[#059252] text-white px-4 py-2 rounded-lg hover:bg-[#059212] transition-colors duration-300">
                     View Details
                   </button>
                 </Link>

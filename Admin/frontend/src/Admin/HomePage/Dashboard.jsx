@@ -93,10 +93,10 @@ const RestaurantDashboard = () => {
   };
 
   const cardData = [
-    { title: 'Custom Food', value: `${customFoods.length}`, subtext: 'Jan 1st - Feb 1st', color: 'bg-green', icon: '$' },
+    { title: 'Custom Food', value: `${customFoods.length}`, color: 'bg-green', icon: <ShoppingBag /> },
     { title: 'All Users', value: `${users.length}`,  color: 'bg-[#059212]', icon: <Users /> },
     { title: 'Menu Items', value: `${menuItems.length}`, color: 'bg-green', icon: <Menu /> },
-    { title: 'Food Soon', value: `${menuItem.length}`, subtext: '↓ 90 (14%)', color: 'bg-[#059212]', icon: <ShoppingBag /> },
+    { title: 'Food Soon', value: `${menuItem.length}`,  color: 'bg-[#059212]', icon: <ShoppingBag /> },
   ];
 
   const barChartData = [

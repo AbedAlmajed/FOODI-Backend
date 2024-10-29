@@ -447,7 +447,7 @@ export default function Login() {
             </button>
             <button 
               onClick={() => setLoginType('driver')} 
-              className={`btn ${loginType === 'driver' ? 'bg-blue-500 text-white' : 'btn-outline'}`}
+              className={`btn ${loginType === 'driver' ? 'bg-[#059212] text-white' : 'btn-outline'}`}
             >
               Login as Driver
             </button>
@@ -481,7 +481,7 @@ export default function Login() {
             </div>
             {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
             <div className="form-control mt-6">
-              <button type="submit" className={`btn ${loginType === 'user' ? 'bg-green' : 'bg-blue-500'} text-white`}>
+              <button type="submit" className={`btn ${loginType === 'user' ? 'bg-green' : 'bg-[#059212]'} text-white`}>
                 Login as {loginType === 'user' ? 'User' : 'Driver'}
               </button>
             </div>

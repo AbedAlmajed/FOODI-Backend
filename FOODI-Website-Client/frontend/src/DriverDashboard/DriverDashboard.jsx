@@ -276,22 +276,22 @@ const DriverDashboard = () => {
       <div className="ml-64 flex-1 p-10 bg-gray-100 min-h-screen">
         <h1 className="text-3xl font-bold mb-5">Driver Dashboard</h1>
         <div className="bg-white shadow-md rounded-lg p-6">
-          <h2 className="text-xl font-semibold mb-4">Welcome, {driver.name}!</h2>
+          <h2 className="text-xl font-semibold mb-4">Welcome, <span className='text-green'>{driver.name}</span></h2>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <p className="font-bold">Email:</p>
+              <p className="font-bold text-green">Email:</p>
               <p>{driver.email}</p>
             </div>
             <div>
-              <p className="font-bold">Phone:</p>
+              <p className="font-bold text-green">Phone:</p>
               <p>{driver.phone}</p>
             </div>
             <div>
-              <p className="font-bold">Vehicle Type:</p>
+              <p className="font-bold text-green">Vehicle Type:</p>
               <p>{driver.vehicleType}</p>
             </div>
             <div>
-              <p className="font-bold">License Number:</p>
+              <p className="font-bold text-green">License Number:</p>
               <p>{driver.licenseNumber}</p>
             </div>
           </div>

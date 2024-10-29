@@ -2366,7 +2366,7 @@ export default function Cart() {
                     </button>
                   </div>
                 </td>
-                <td className="px-4 py-2 text-sm text-gray-500">${(item.menuItem.price * item.quantity).toFixed(2)}</td>
+                <td className="px-4 py-2 text-sm text-gray-500">JD{(item.menuItem.price * item.quantity).toFixed(2)}</td>
                 <td className="px-4 py-2 text-sm font-medium">
                   <button className="text-red" onClick={() => handleRemoveItem(item.menuItem._id)}>
                     <FaTrash className="w-4 h-4 md:w-5 md:h-5" />
@@ -2417,7 +2417,7 @@ export default function Cart() {
                     </button>
                   </div>
                 </td>
-                <td className="px-4 py-2 text-sm text-gray-500">${(item.customFood.price ).toFixed(2)}</td>
+                <td className="px-4 py-2 text-sm text-gray-500">JD{(item.customFood.price ).toFixed(2)}</td>
                 <td className="px-4 py-2 text-sm font-medium">
                   <button className="text-red" onClick={() => handleRemoveItem(item.customFood._id, true)}>
                     <FaTrash className="w-4 h-4 md:w-5 md:h-5" />
@@ -2445,7 +2445,7 @@ export default function Cart() {
           <h3 className="text-lg md:text-xl font-semibold mb-4">Shopping Details</h3>
           <div className="space-y-2">
             <p><strong className='text-green'>Total Items:</strong> {cartCount}</p>
-            <p><strong className='text-green'>Total Price:</strong> ${totalPrice.toFixed(2)}</p>
+            <p><strong className='text-green'>Total Price:</strong> JD{totalPrice.toFixed(2)}</p>
           </div>
           <Link to="/Menu/Cart/payment">   
             <button className="mt-4 px-4 py-2 bg-green-500 text-white font-semibold rounded bg-green hover:bg-black">
