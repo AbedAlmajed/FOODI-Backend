@@ -159,7 +159,11 @@ const Testimonials = () => {
               {testimonial.feedback}
             </blockquote>
             <div className="space-y-2">
-              <h5 className="text-lg font-semibold">{testimonial.userId.name}</h5>
+              {/* <h5 className="text-lg font-semibold">{testimonial.userId.name}</h5> */}
+              <h5 className="text-lg font-semibold">
+  {testimonial.userId?.name ? testimonial.userId.name : null}
+</h5>
+
               <div className="flex items-center gap-1 md:gap-2 justify-center">
                 {[...Array(5)].map((_, index) => (
                   <FaStar

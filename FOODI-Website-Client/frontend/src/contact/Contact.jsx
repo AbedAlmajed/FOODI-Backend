@@ -775,7 +775,11 @@ export default function CombinedContactFeedback() {
                           </span>
                         </div>
                         <p className="text-gray-700">{entry.feedback}</p>
-                        <p className="text-sm text-gray-500">By: {entry.userId.name}</p>
+                        {/* <p className="text-sm text-gray-500">By: {entry.userId.name}</p> */}
+                        <p className="text-sm text-gray-500">
+  By: {entry.userId?.name ? entry.userId.name : null}
+</p>
+
                       </li>
                     ))}
                   </ul>

@@ -17,5 +17,6 @@ const  {authenticateDriver}  = require('../middleware/authenticateJWT');
 
 router.post('/login', driverController.login);
 router.get('/me', authenticateDriver, driverController.getDriverData);
+router.get('/driver/status', authenticateDriver, driverController.getDriverStatus);
 
 module.exports = router;

@@ -2976,6 +2976,7 @@ import Footer from '../Components/Footer';
 import { FaUserCircle, FaPhone } from 'react-icons/fa';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { useCart } from '../context/CartContext';
 
 export default function Profile() {
   const navigate = useNavigate();
@@ -2985,6 +2986,7 @@ export default function Profile() {
     password: '',
     profilePhotoLink: '',
   });
+  const [items, setItems] = useState([]);
 
   const [loading, setLoading] = useState(true);
   const [favoriteItems, setFavoriteItems] = useState([]);
@@ -2992,7 +2994,7 @@ export default function Profile() {
   const [orders, setOrders] = useState([]);
   const [activeSection, setActiveSection] = useState('editProfile');
   const [selectedOrder, setSelectedOrder] = useState(null);
-
+  const { updateCartCount } = useCart();
   useEffect(() => {
     const token = localStorage.getItem('token');
     const userId = localStorage.getItem('userID');
@@ -3002,6 +3004,7 @@ export default function Profile() {
       return;
     }
 
+   
     const fetchProfile = async () => {
       try {
         const response = await axios.get(`http://localhost:4000/api/users/profile/${userId}`, {
@@ -3054,6 +3057,61 @@ export default function Profile() {
 
     fetchProfile();
   }, [navigate]);
+
+
+  const handleAddToCart = async (itemId) => {
+    try {
+      const userId = localStorage.getItem('userID');
+      const token = localStorage.getItem('token');
+      
+      if (!userId || !token) {
+        console.error('User ID or token not found');
+        return;
+      }
+
+      const response = await axios.post(
+        `http://localhost:4000/api/cart/add`,
+        { itemId, quantity: 1 },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+          withCredentials: true
+        }
+      );
+
+      if (response.status === 200) {
+        // Fetch updated cart count
+        const countResponse = await axios.get('http://localhost:4000/api/cart/count', {
+          headers: { Authorization: `Bearer ${token}` },
+          withCredentials: true
+        });
+        
+        // Update the cart count in context
+        updateCartCount(countResponse.data.count);
+
+        const addedItem = items.find(item => item._id === itemId);
+        const itemName = addedItem ? addedItem.recipeName : 'Item';
+
+        Swal.fire({
+          title: 'Added to Cart!',
+          text: `${itemName} added to cart successfully`,
+          icon: 'success',
+          confirmButtonColor: '#4CAF50',
+          timer: 2000,
+          timerProgressBar: true,
+          showConfirmButton: false
+        });
+      }
+    } catch (error) {
+      console.error('Error adding item to cart:', error);
+      Swal.fire({
+        title: 'Error!',
+        text: 'Failed to add item to cart. Please try again.',
+        icon: 'error',
+        confirmButtonColor: '#4CAF50',
+      });
+    }
+  };
+
 
   const handleChange = (e) => {
     setFormData({
@@ -3336,7 +3394,8 @@ export default function Profile() {
                       <p className="text-green-600 font-bold mb-4">
                         ${item.price.toFixed(2)}
                       </p>
-                      <button className="bg-green text-white px-4 py-2 rounded-lg hover:bg-black transition-colors duration-300">
+                      <button className="bg-green text-white px-4 py-2 rounded-lg hover:bg-black transition-colors duration-300"
+                        onClick={() => handleAddToCart(item._id)}>
                         Add to cart
                       </button>
                     </div>

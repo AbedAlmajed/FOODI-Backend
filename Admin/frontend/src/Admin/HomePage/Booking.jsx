@@ -1249,6 +1249,9 @@
 
 
 
+//////////////////////////////////////////////////final version /////////////////////
+
+
 
 
 import React, { useState, useEffect } from 'react';
@@ -1357,7 +1360,7 @@ const Booking = () => {
 
   // Search and pagination functionality
   const filteredPayments = payments.filter(payment =>
-    payment.userId.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    // payment.userId.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     payment.stripePaymentIntentId.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -1378,7 +1381,7 @@ const Booking = () => {
     <div className="flex flex-col md:flex-row min-h-screen">
       <Sidebar />
       <div className="flex-grow p-6">
-        <h1 className="text-3xl font-bold mb-6">Manage All <span className='text-green'>Payments!</span></h1>
+        <h1 className="text-3xl font-bold mb-6">Manage All <span className='text-green'>Orders!</span></h1>
         
         {/* Search Bar */}
         <div className="mb-4 relative">
@@ -1422,7 +1425,7 @@ const Booking = () => {
                 <React.Fragment key={payment._id}>
                   <tr className="hover:bg-gray-50">
                     <td className="py-4 px-4">{indexOfFirstItem + index + 1}</td>
-                    <td className="py-4 px-4">{payment.userId.name}</td>
+                    <td className="py-4 px-4">{payment.userId?.name?payment.userId.name:null}</td>
                     <td className="py-4 px-4">{payment.stripePaymentIntentId}</td>
                     <td className="py-4 px-4">${payment.amount.toFixed(2)}</td>
                     <td className="py-4 px-4">
@@ -1462,7 +1465,7 @@ const Booking = () => {
                       )}
                     </td>
                     <td className="py-4 px-4">
-                      {payment.status === 'pending' && !payment.assignedDriver && (
+                      {/* {payment.status === 'pending' && !payment.assignedDriver && (
                         <button
                           onClick={() => handleConfirmPayment(payment._id)}
                           className="text-green-600 hover:text-green-800 mr-2"
@@ -1485,7 +1488,7 @@ const Booking = () => {
                         >
                           <RefreshCw size={20} />
                         </button>
-                      )}
+                      )} */}
                       <button
                         onClick={() => handleDeletePayment(payment._id)}
                         className="text-red-600 hover:text-red-800"
@@ -1553,3 +1556,11 @@ const Booking = () => {
 };
 
 export default Booking;
+
+
+
+
+
+
+
+

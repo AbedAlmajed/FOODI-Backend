@@ -31,6 +31,7 @@
 
 const Driver = require('../models/driveModel');
 const jwt = require('jsonwebtoken');
+const Order = require('../models/Payment'); // Add this import
 
 exports.login = async (req, res) => {
   try {
@@ -68,5 +69,45 @@ exports.getDriverData = async (req, res) => {
   } catch (error) {
     console.error('Get driver data error:', error);
     res.status(500).json({ message: 'Server error', error: error.message });
+  }
+};
+
+
+
+// exports.getDriverStatus = async (req, res) => {
+//   try {
+//     const driver = await Driver.findById(req.driver.id);
+//     const pendingOrders = await Order.countDocuments({ driverId: driver._id, status: 'pending' });
+//     const completedOrders = await Order.countDocuments({ driverId: driver._id, status: 'completed' });
+
+//     let status = 'available';
+//     if (pendingOrders > 0) {
+//       status = 'busy';
+//     }
+
+//     await Driver.findByIdAndUpdate(driver._id, { status });
+//     res.json({ status });
+//   } catch (error) {
+//     console.error('Get driver status error:', error);
+//     res.status(500).json({ message: 'Error fetching driver status' });
+//   }
+// };
+
+
+exports.getDriverStatus = async (req, res) => {
+  try {
+    const driver = await Driver.findById(req.driver.id);
+    if (!driver) {
+      return res.status(404).json({ message: 'Driver not found' });
+    }
+
+    const pendingOrders = await Order.countDocuments({ driverId: driver._id, status: 'pending' });
+    const status = pendingOrders > 0 ? 'busy' : 'available';
+
+    await Driver.findByIdAndUpdate(driver._id, { status });
+    res.json({ status });
+  } catch (error) {
+    console.error('Get driver status error:', error);
+    res.status(500).json({ message: 'Error fetching driver status' });
   }
 };

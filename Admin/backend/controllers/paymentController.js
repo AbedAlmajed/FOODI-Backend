@@ -159,6 +159,8 @@
 //     if (!payment) {
 //       return res.status(404).json({ message: 'Payment not found' });
 //     }
+//     // Set the assigned driver's status to busy
+//     await Driver.findByIdAndUpdate(driverId, { status: 'busy' });
 //     res.json(payment);
 //   } catch (error) {
 //     res.status(500).json({ message: 'Error assigning driver', error: error.message });
@@ -299,9 +301,10 @@
 
 
 
-////
 
 
+
+///////////////////////////////////////////////////////////////final version ////////////////////////////
 
 
 const Payment = require('../models/Payment');
@@ -395,12 +398,25 @@ exports.completeDelivery = async (req, res) => {
     if (!payment) {
       return res.status(404).json({ message: 'Payment not found' });
     }
+
     // Set the driver back to available
-    await Driver.findByIdAndUpdate(payment.assignedDriver, { status: 'available' });
+    if (payment.assignedDriver) {
+      await Driver.findByIdAndUpdate(payment.assignedDriver, { status: 'available' });
+    }
+
     // Update payment status
     payment.status = 'completed';
     await payment.save();
-    res.json({ message: 'Delivery completed successfully' });
+
+    // Return the updated payment with populated fields
+    const updatedPayment = await Payment.findById(paymentId)
+      .populate('userId', 'name email')
+      .populate('assignedDriver', 'name email');
+
+    res.json({ 
+      message: 'Delivery completed successfully',
+      payment: updatedPayment
+    });
   } catch (error) {
     res.status(500).json({ message: 'Error completing delivery', error: error.message });
   }
@@ -436,6 +452,9 @@ exports.reassignDriver = async (req, res) => {
     res.status(500).json({ message: 'Error reassigning driver', error: error.message });
   }
 };
+
+
+
 
 
 

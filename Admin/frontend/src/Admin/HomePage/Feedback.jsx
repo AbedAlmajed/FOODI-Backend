@@ -380,9 +380,9 @@ const Feedback = () => {
                   <tbody className="bg-white divide-y divide-gray-200">
                     {feedbacks.map((feedback) => (
                       <tr key={feedback._id}>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{feedback.userId.name}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{feedback.userId?.name ? feedback.userId.name  : null}</td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-  <img className="rounded-full w-10 h-10" src={feedback.userId.image} alt="User Image" />
+  <img className="rounded-full w-10 h-10" src={feedback.userId?.image?feedback.userId.image:null} alt="User Image" />
 </td>
 
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{feedback.rating}</td>
