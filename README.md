@@ -39,5 +39,6 @@ The platform enables restaurant owners to efficiently manage orders, custom dish
 
 
 - **Project Documentaion:** [Project Documentaion.docx](https://github.com/user-attachments/files/17787234/Project.Documentaion.docx)
-[Uploading Project Breif.docx…]()
+- **Project Breif:**[Project Breif.docx](https://github.com/user-attachments/files/17787296/Project.Breif.docx)
+
 
