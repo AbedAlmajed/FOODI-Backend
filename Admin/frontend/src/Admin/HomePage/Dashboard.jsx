@@ -238,6 +238,8 @@ const RestaurantDashboard = () => {
   const [menuItem, setMenuItem] = useState([]);
   const [payments, setPayments] = useState([]);
   const [error, setError] = useState(null);
+  const [totalItems, setTotalItems] = useState(0);
+  const [drivers, setDrivers] = useState([]);
 
   useEffect(() => {
     fetchMenuItem();
@@ -245,8 +247,22 @@ const RestaurantDashboard = () => {
     fetchUsers();
     fetchMenuItems();
     fetchPayments();
+    fetchDrivers();
+
   }, []);
 
+
+
+
+  const fetchDrivers = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/api/drivers');
+      setDrivers(response.data);
+    } catch (error) {
+      console.error('Error fetching drivers:', error);
+    }
+  };
+  
   const fetchMenuItem = async () => {
     try {
       const response = await axios.get(`http://localhost:5000/api/food-soon`);
@@ -301,7 +317,7 @@ const RestaurantDashboard = () => {
   const cardData = [
     { title: 'Custom Food', value: `${customFoods.length}`, color: 'bg-green', icon: <ShoppingBag /> },
     { title: 'All Users', value: `${users.length}`, color: 'bg-[#059212]', icon: <Users /> },
-    { title: 'Menu Items', value: `${menuItems.length}`, color: 'bg-green', icon: <Menu /> },
+    { title: 'All Drivers', value: `${drivers.length}`, color: 'bg-green', icon: <Menu /> },
     { title: 'Food Soon', value: `${menuItem.length}`, color: 'bg-[#059212]', icon: <ShoppingBag /> },
   ];
 

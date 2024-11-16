@@ -1308,7 +1308,7 @@ const Navbar = () => {
               to="/custom" 
               className={isActive('/custom') ? 'text-green' : ''}
             >
-              Custom Your Food
+              Custom Your Dish
             </Link>
           </li>
         </>

@@ -123,10 +123,10 @@ exports.createCustomFood = async (req, res) => {
     });
 
     await newCustomFood.save();
-    res.status(201).json({ message: 'Custom food submitted successfully' });
+    res.status(201).json({ message: 'Custom dish submitted successfully' });
   } catch (error) {
-    console.error('Error creating custom food:', error);
-    res.status(500).json({ message: 'Error submitting custom food', error: error.message });
+    console.error('Error creating custom dish:', error);
+    res.status(500).json({ message: 'Error submitting custom dish', error: error.message });
   }
 };
 
@@ -136,8 +136,8 @@ exports.getCustomFoodByUser = async (req, res) => {
     const customFoodItems = await CustomFood.find({ user: userId });
     res.status(200).json({ customFoodItems });
   } catch (error) {
-    console.error('Error fetching custom food items:', error);
-    res.status(500).json({ message: 'Error fetching custom food items', error: error.message });
+    console.error('Error fetching custom dish items:', error);
+    res.status(500).json({ message: 'Error fetching custom dish items', error: error.message });
   }
 };
 
@@ -150,7 +150,7 @@ exports.deleteCustomFood = async (req, res) => {
 
     const customFood = await CustomFood.findOne({ _id: itemId, user: userId });
     if (!customFood) {
-      return res.status(404).json({ message: 'Custom food item not found' });
+      return res.status(404).json({ message: 'Custom dish item not found' });
     }
 
     // Remove the custom food item from all carts
@@ -162,9 +162,9 @@ exports.deleteCustomFood = async (req, res) => {
     // Delete the custom food item
     await CustomFood.findByIdAndDelete(itemId);
 
-    res.status(200).json({ message: 'Custom food item deleted successfully' });
+    res.status(200).json({ message: 'Custom dish item deleted successfully' });
   } catch (error) {
-    console.error('Error deleting custom food item:', error);
-    res.status(500).json({ message: 'Error deleting custom food item', error: error.message });
+    console.error('Error deleting custom dish item:', error);
+    res.status(500).json({ message: 'Error deleting custom dish item', error: error.message });
   }
 };

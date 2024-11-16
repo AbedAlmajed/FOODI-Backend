@@ -362,7 +362,7 @@ const Feedback = () => {
       <div className="flex-1 flex flex-col overflow-hidden">
         <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
           <div className="container mx-auto px-6 py-8">
-            <h1 className="text-3xl font-bold text-gray-700 mb-6">Feedback Table</h1>
+            <h1 className="text-3xl font-bold text-gray-700 mb-6">Feedback </h1>
             <div className="bg-white shadow-md rounded-lg overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="min-w-full divide-y divide-gray-200">

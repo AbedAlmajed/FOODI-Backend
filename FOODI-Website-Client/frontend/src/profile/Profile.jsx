@@ -3180,18 +3180,18 @@ export default function Profile() {
       title: 'Order Details',
       html: `
         <p><strong>Order Date:</strong> ${order.orderDate}</p>
-        <p><strong>Price:</strong> $${order.price}</p>
+        <p><strong>Price:</strong> JD${order.price}</p>
         <p><strong>Status:</strong> ${order.status}</p>
-        <p><strong>Delivery Name:</strong> ${order.deliveryInfo.name}</p>
+        <p><strong>Driver Name:</strong> ${ order.assignedDriver?.name? order.assignedDriver.name : "Not assigned yet"}</p>
         <p><strong>Delivery Address:</strong> ${order.deliveryInfo.address}, ${order.deliveryInfo.city}, ${order.deliveryInfo.state} ${order.deliveryInfo.zipCode}</p>
         <h3>Order Summary:</h3>
         <ul>
           ${order.orderSummary.items.map(item => `
-            <li>${item.name} - Quantity: ${item.quantity}, Price: $${item.price.toFixed(2)}</li>
+            <li>${item.name} - Quantity: ${item.quantity}, Price: JD${item.price.toFixed(2)}</li>
           `).join('')}
         </ul>
         <p><strong>Total Items:</strong> ${order.orderSummary.itemCount}</p>
-        <p><strong>Total Price:</strong> $${order.orderSummary.totalPrice.toFixed(2)}</p>
+        <p><strong>Total Price:</strong> JD${order.orderSummary.totalPrice.toFixed(2)}</p>
       `,
       confirmButtonText: 'Close',
     });
@@ -3271,7 +3271,7 @@ export default function Profile() {
                 activeSection === 'customFood' ? 'bg-green text-white' : 'bg-gray-200 text-gray-700'
               }`}
             >
-              Custom Food
+              Custom Dish
             </button>
             <button
               onClick={() => setActiveSection('orders')}
@@ -3390,9 +3390,9 @@ export default function Profile() {
                     </figure>
                     <div className="p-4">
                       <h3 className="text-lg font-semibold mb-2 text-gray-900">{item.recipeName}</h3>
-                      <p className="text-gray-700 mb-2">{item.recipeDetails}</p>
+                      {/* <p className="text-gray-700 mb-2">{item.recipeDetails}</p> */}
                       <p className="text-green-600 font-bold mb-4">
-                        ${item.price.toFixed(2)}
+                        JD{item.price.toFixed(2)}
                       </p>
                       <button className="bg-green text-white px-4 py-2 rounded-lg hover:bg-black transition-colors duration-300"
                         onClick={() => handleAddToCart(item._id)}>
@@ -3425,7 +3425,7 @@ export default function Profile() {
                       <h3 className="text-lg font-semibold mb-2 text-gray-900">{item.name}</h3>
                       <p className="text-gray-700 mb-2">{item.notes}</p>
                       <p className="text-green-600 font-bold mb-4">
-                        ${item.price}
+                        JD{item.price}
                       </p>
                       <button className="bg-green text-white px-4 py-2 rounded-lg hover:bg-black transition-colors duration-300">
                         Add to cart
@@ -3446,7 +3446,7 @@ export default function Profile() {
                     <tr className="bg-green text-white uppercase text-sm leading-normal">
                       <th className="py-3 px-6 text-left">#</th>
                       <th className="py-3 px-6 text-left">Order Date</th>
-                      <th className="py-3 px-6 text-left">Delivery Name</th>
+                      <th className="py-3 px-6 text-left">Driver Name</th>
                       <th className="py-3 px-6 text-left">Price</th>
                       <th className="py-3 px-6 text-left">Status</th>
                       <th className="py-3 px-6 text-left">Action</th>
@@ -3457,8 +3457,8 @@ export default function Profile() {
                       <tr key={order.transactionId} className="border-b border-gray-200 hover:bg-gray-100">
                         <td className="py-3 px-6 text-left whitespace-nowrap">{index + 1}</td>
                         <td className="py-3 px-6 text-left">{order.orderDate}</td>
-                        <td className="py-3 px-6 text-left">{order.deliveryInfo.name}</td>
-                        <td className="py-3 px-6 text-left">${order.price}</td>
+                        <td className="py-3 px-6 text-left">{ order.assignedDriver?.name? order.assignedDriver.name : "Not assigned yet"}</td>
+                        <td className="py-3 px-6 text-left">JD{order.price}</td>
                         <td className="py-3 px-6 text-left">
                           <span className={`py-1 px-3 rounded-full text-xs ${
                             order.status === 'completed' ? 'bg-green' : 

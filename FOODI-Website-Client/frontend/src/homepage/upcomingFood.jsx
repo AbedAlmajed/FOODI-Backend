@@ -165,7 +165,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const ITEMS_PER_PAGE = 6;
+const ITEMS_PER_PAGE = 3;
 
 const UpcomingFood = () => {
   const [items, setItems] = useState([]);
@@ -218,7 +218,7 @@ const UpcomingFood = () => {
               </figure>
               <div className="p-4">
                 <h3 className="text-lg font-semibold mb-2 text-gray-900">{item.recipeName}</h3>
-                <p className="text-gray-700 mb-2">{item.recipeDetails}</p>
+                {/* <p className="text-gray-700 mb-2">{item.recipeDetails}</p> */}
                 <p className="text-green-600 font-bold mb-4">JD{item.price.toFixed(2)}</p>
               </div>
             </div>
@@ -228,7 +228,7 @@ const UpcomingFood = () => {
           <button
             onClick={handlePrevPage}
             disabled={currentPage === 1}
-            className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 disabled:bg-gray-300 disabled:cursor-not-allowed"
+            className="px-4 py-2 bg-green text-white rounded hover:bg-green-600 disabled:bg-gray-300 disabled:cursor-not-allowed"
           >
             Previous
           </button>
@@ -236,7 +236,7 @@ const UpcomingFood = () => {
           <button
             onClick={handleNextPage}
             disabled={currentPage === totalPages}
-            className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 disabled:bg-gray-300 disabled:cursor-not-allowed"
+            className="px-4 py-2 bg-green text-white rounded hover:bg-green-600 disabled:bg-gray-300 disabled:cursor-not-allowed"
           >
             Next
           </button>

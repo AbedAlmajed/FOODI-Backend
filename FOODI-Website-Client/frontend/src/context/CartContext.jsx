@@ -7,7 +7,7 @@ export const CartProvider = ({ children }) => {
   const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {
-    // Initial fetch of cart count
+ 
     const fetchCartCount = async () => {
       try {
         const token = localStorage.getItem('token');

@@ -802,7 +802,7 @@ const ManageMenu = () => {
                           <img src={item.imageUrl} alt={item.recipeName} className="w-12 h-12 rounded-full object-cover" />
                         </td>
                         <td className="px-6 py-4">{item.recipeName}</td>
-                        <td className="px-6 py-4">${item.price.toFixed(2)}</td>
+                        <td className="px-6 py-4">JD {item.price.toFixed(2)}</td>
                         <td className="px-6 py-4 text-center">
                           <button
                             onClick={() => handleEdit(item)}

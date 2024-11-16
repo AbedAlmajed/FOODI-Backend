@@ -434,7 +434,7 @@ const Banner = () => {
           </Link>
           <Link to="/custom">
             <button className="bg-green font-semibold btn text-white px-8 py-3 rounded-full ml-3 mt-5">
-              Custom Your Food
+              Custom Your Dish
             </button>
           </Link>
           <button 

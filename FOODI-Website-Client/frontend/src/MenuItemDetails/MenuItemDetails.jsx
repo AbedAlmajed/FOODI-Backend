@@ -188,7 +188,7 @@ const MenuItemDetails = () => {
                 <p className="text-gray-600 text-lg leading-relaxed">{item.recipeDetails}</p>
                 <div className="flex items-center justify-between">
                   <p className="text-3xl font-bold text-green-600">
-                    ${item.price.toFixed(2)}
+                    JD {item.price.toFixed(2)}
                   </p>
                 </div>
               </div>

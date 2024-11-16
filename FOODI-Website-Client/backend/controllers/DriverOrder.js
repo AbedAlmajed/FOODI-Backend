@@ -133,6 +133,74 @@
 
 
 
+// const Payment = require('../models/Payment');
+// const Driver = require('../models/driveModel');
+
+// exports.getDriverPayments = async (req, res) => {
+//   try {
+//     const driverId = req.driver.id;
+//     const payments = await Payment.find({ assignedDriver: driverId })
+//       .populate('userId', 'name email')
+//       .sort('-createdAt');
+//     res.status(200).json(payments);
+//   } catch (error) {
+//     console.error('Error in getDriverPayments:', error);
+//     res.status(500).json({ message: 'Error fetching payments', error: error.message });
+//   }
+// };
+
+// exports.updatePaymentStatus = async (req, res) => {
+//   try {
+//     const { paymentId } = req.params;
+//     const { status } = req.body;
+//     const driverId = req.driver.id;
+
+//     if (!['pending', 'completed', 'failed'].includes(status)) {
+//       return res.status(400).json({ message: 'Invalid status' });
+//     }
+
+//     // Start a session for transaction
+//     const session = await Payment.startSession();
+//     session.startTransaction();
+
+//     try {
+//       // Update payment status
+//       const payment = await Payment.findByIdAndUpdate(
+//         paymentId,
+//         { status },
+//         { new: true, session }
+//       );
+
+//       if (!payment) {
+//         await session.abortTransaction();
+//         return res.status(404).json({ message: 'Payment not found' });
+//       }
+
+//       // Update driver status based on payment status
+//       const driverStatus = status === 'pending' ? 'busy' : 'available';
+//       await Driver.findByIdAndUpdate(
+//         driverId,
+//         { status: driverStatus },
+//         { session }
+//       );
+
+//       await session.commitTransaction();
+//       res.status(200).json(payment);
+//     } catch (error) {
+//       await session.abortTransaction();
+//       throw error;
+//     } finally {
+//       session.endSession();
+//     }
+//   } catch (error) {
+//     console.error('Error in updatePaymentStatus:', error);
+//     res.status(500).json({ message: 'Error updating payment status', error: error.message });
+//   }
+// }; 
+
+
+
+// Backend - Controller
 const Payment = require('../models/Payment');
 const Driver = require('../models/driveModel');
 
@@ -157,6 +225,17 @@ exports.updatePaymentStatus = async (req, res) => {
 
     if (!['pending', 'completed', 'failed'].includes(status)) {
       return res.status(400).json({ message: 'Invalid status' });
+    }
+
+    // First check the current payment status
+    const currentPayment = await Payment.findById(paymentId);
+    if (!currentPayment) {
+      return res.status(404).json({ message: 'Payment not found' });
+    }
+
+    // Prevent changing from completed to pending
+    if (currentPayment.status === 'completed' && status === 'pending') {
+      return res.status(400).json({ message: 'Cannot change status from completed to pending' });
     }
 
     // Start a session for transaction
@@ -196,7 +275,4 @@ exports.updatePaymentStatus = async (req, res) => {
     console.error('Error in updatePaymentStatus:', error);
     res.status(500).json({ message: 'Error updating payment status', error: error.message });
   }
-}; 
-
-
-
+};

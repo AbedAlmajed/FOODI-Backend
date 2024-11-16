@@ -21,7 +21,7 @@ exports.addToCart = async (req, res) => {
     if (isCustom) {
       const customFood = await CustomFood.findById(itemId);
       if (!customFood || !customFood.isApproved) {
-        return res.status(404).json({ message: 'Approved custom food item not found' });
+        return res.status(404).json({ message: 'Approved custom dish item not found' });
       }
 
       const existingItemIndex = cart.customItems.findIndex(item => item.customFood.toString() === itemId);

@@ -1207,7 +1207,7 @@ const CheckoutForm = ({ orderSummary, onSuccess }) => {
       <button
         type="submit"
         disabled={!stripe || processing}
-        className="w-full bg-green text-white py-2 rounded-md hover:bg-black disabled:bg-gray-400"
+        className="w-full  bg-green text-white py-2 rounded-md hover:bg-black disabled:bg-gray-400"
       >
         {processing ? 'Processing...' : 'Pay Now'}
       </button>

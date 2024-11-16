@@ -423,7 +423,7 @@ const CommentSection = ({ menuItemId }) => {
               className="w-full p-2 border rounded bg-white"
               required
             />
-            <button type="submit" className="mt-2 bg-green-500 text-white px-4 py-2 rounded mr-2">
+            <button type="submit" className="mt-2 bg-green text-white px-4 py-2 rounded mr-2">
               Save
             </button>
             <button onClick={() => setIsEditing(false)} className="mt-2 bg-gray-500 text-white px-4 py-2 rounded">
@@ -446,7 +446,7 @@ const CommentSection = ({ menuItemId }) => {
                 </button>
               </div>
             )}
-            <button onClick={() => setReplyingTo(comment._id)} className="text-green-500 mt-2">
+            <button onClick={() => setReplyingTo(comment._id)} className="text-green mt-2">
               Reply
             </button>
           </>
