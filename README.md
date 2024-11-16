@@ -34,6 +34,10 @@ The platform enables restaurant owners to efficiently manage orders, custom dish
 - **Live Demo:** [Foodi Live Demo](https://foodi-website.vercel.app/)
 - **Design Mockups:** [Figma Design](https://www.figma.com/design/X3ViaUyicJoBDUpqvgttXI/FOODI?node-id=0-1&t=f5bvMmX1uYbQRP2l-0)
 - **Trello:** [Trello](https://trello.com/b/6JEGftAx/foodi)
-
 - **Github:** [Github](https://github.com/AbedAlmajed/FOODI-Backend.git)
+
+
+
+[Project Documentaion.docx](https://github.com/user-attachments/files/17787234/Project.Documentaion.docx)
+[Uploading Project Breif.docx…]()
 
